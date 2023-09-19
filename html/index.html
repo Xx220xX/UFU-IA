@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo com Fundo e Mensagens Fofinhas</title>
+
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            background-image: url('https://s2-g1.glbimg.com/5P-MttrBoJUxI9A8UgS0Bva4TIw=/0x0:818x613/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2021/U/t/BlrJPnRziG0BB9LXCbXw/flora-fira.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: #f7f7f7;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilizando a div do vídeo */
+        .video-container {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+        }
+
+        /* Estilizando o player de vídeo */
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilizando a div das mensagens */
+        .mensagem-container {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 24px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- Div das mensagens -->
+<div class="mensagem-container">
+
+</div>
+
+<!-- Div do vídeo -->
+<div class="video-container">
+    <!-- Player de vídeo do YouTube -->
+    <iframe src="https://www.youtube.com/embed/Qc7_zRjH808" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<!-- Script para trocar as mensagens fofinhas a cada 10 segundos -->
+<script>
+    const mensagensFofinhas = [
+        "Seu código é mais elegante do que uma obra de arte!",
+        "Você é a função que faltava na minha vida.",
+        "Se eu fosse um algoritmo, escolheria você como meu destino.",
+        "Nossos bytes combinam perfeitamente!",
+        "Seu sorriso é como um loop infinito de felicidade.",
+        "Você é a variável que deu sentido à minha vida.",
+        "Você é o tipo de pessoa que faz meu coração acelerar.",
+        "Juntos, formamos uma conexão mais forte do que a de um cabo de fibra óptica.",
+        "Você é a razão pela qual meu código está sempre bug-free.",
+        "Seu amor é melhor do que qualquer API que já usei.",
+        "Nossos bytes de amor são perfeitamente sincronizados.",
+        "Você é a tela inicial do meu coração.",
+        "Você é mais preciosa do que qualquer linguagem de programação.",
+        "Nosso amor é como uma pilha LIFO - sempre em ordem!",
+        "Você é a exceção em todos os meus loops.",
+        "Nossa relação é tão escalável quanto a nuvem.",
+        "Sua beleza é um código que nunca fica obsoleto.",
+        "Você é o algoritmo da minha vida.",
+        "Cada dia com você é como uma atualização constante de felicidade.",
+        "Seu amor é melhor do que um código sem bugs.",
+        "Juntos, formamos um grande cluster de amor.",
+        "Você é a chave para o meu coração criptografado.",
+        "Seu amor é a função que nunca retorna um erro na minha vida."
+    ];
+
+    // Agora você tem 100 frases fofinhas para escolher e encantar uma programadora bonita!
+
+    let mensagemAtualIndex = 0;
+
+    function trocarMensagemFofinha() {
+        const mensagemContainer = document.querySelector(".mensagem-container");
+        mensagemContainer.innerText = mensagensFofinhas[mensagemAtualIndex];
+        mensagemAtualIndex = (mensagemAtualIndex + 1) % mensagensFofinhas.length;
+    }
+
+    setInterval(trocarMensagemFofinha, 10000); // Trocar a cada 10 segundos
+</script>
+</body>
+</html>
