@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid de Botões e Matriz</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 40px); /* 5 colunas */
+            grid-template-rows: repeat(5, 40px); /* 4 linhas */
+            gap: 1px; /* Espaço entre os botões */
+        }
+
+        .grid button {
+            width: 40px; /* Largura dos botões */
+            height: 40px; /* Altura dos botões */
+            border: 1px solid black; /* Contorno preto */
+            background-color: white; /* Fundo branco inicial */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="grid" id="grid">
+    <!-- Botões serão gerados dinamicamente com JavaScript -->
+</div>
+<button id="exportButton">Exportar Matriz</button>
+<pre id="matrixOutput"></pre>
+
+<script>
+    const grid = document.getElementById("grid");
+    const exportButton = document.getElementById("exportButton");
+    const matrixOutput = document.getElementById("matrixOutput");
+
+    const rows = 5;
+    const cols = 4;
+    const matrix = Array.from({ length: rows }, () => Array(cols).fill(-1)); // Inicializa a matriz com -1.
+
+    // Função para criar os botões no grid
+    function createButtons() {
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                const button = document.createElement("button");
+                button.dataset.row = i;
+                button.dataset.col = j;
+                button.addEventListener("click", handleClick);
+                grid.appendChild(button);
+            }
+        }
+    }
+
+    // Função para lidar com o clique em um botão
+    function handleClick(event) {
+        const row = event.target.dataset.row;
+        const col = event.target.dataset.col;
+
+        if (matrix[row][col] === -1) {
+            event.target.style.backgroundColor = "black";
+            matrix[row][col] = 1;
+        } else {
+            event.target.style.backgroundColor = "white";
+            matrix[row][col] = -1;
+        }
+    }
+
+    exportButton.addEventListener("click", exportMatrix);
+
+    function exportMatrix() {
+        let matrixText = "{";
+        for (let i = 0; i < rows; i++) {
+            for (let j = 0; j < cols; j++) {
+                matrixText += matrix[i][j] + ",";
+            }
+        }
+        matrixText += "}\n";
+        matrixOutput.textContent = matrixText;
+    }
+
+    createButtons(); // Chama a função para criar os botões no carregamento da página.
+</script>
+</body>
+</html>

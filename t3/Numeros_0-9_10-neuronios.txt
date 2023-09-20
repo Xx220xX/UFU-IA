@@ -1,0 +1,33 @@
+Epoca 0:
+	 0 is 089
+	 1 is 129
+	 2 is 9
+	 3 is 79
+	 4 is 4568
+	 5 is 69
+	 6 is 689
+	 7 is 789
+	 8 is 89
+	 9 is 9
+Epoca 1:
+	 0 is 0
+	 1 is 158
+	 2 is 9
+	 3 is 3
+	 4 is 4
+	 5 is 5
+	 6 is 68
+	 7 is 7
+	 8 is 8
+	 9 is 9
+Epoca 2:
+	 0 is 0
+	 1 is 1
+	 2 is 2
+	 3 is 3
+	 4 is 4
+	 5 is 5
+	 6 is 6
+	 7 is 7
+	 8 is 8
+	 9 is 9

@@ -2,7 +2,7 @@
 #include <locale>
 
 #include "Perceptron/perceptron.h"
-
+Perceptron * perceptron;
 int main() {
 	setlocale(LC_CTYPE, "pt-BR.utf-8");
 //	HTTPServer server;
