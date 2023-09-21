@@ -23,8 +23,7 @@ int main() {
 	for (int epoca = 0; epoca < 200; ++epoca) {
 		std::cout << (epoca + 1) << " ____\n";
 		for (int i = 0; i < 4; ++i) {
-			perceptron->achaSaidas(x + i * 2);
-			perceptron->arrumaPesos(t + i * 2);
+            perceptron->treinarExemplo(x + i * 2,t + i * 2);
 		}
 		std::cout << "x1 x2 -> y t" << std::endl;
 		int acertos = 0;

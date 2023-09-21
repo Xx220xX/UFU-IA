@@ -35,7 +35,7 @@ int main(int nargs, char **args) {
         dataSet.data2train[i].target[2] = (i&0b0100)?1:-1;
         dataSet.data2train[i].target[3] = (i&0b1000)?1:-1;
     }
-    dataSet.config(true,100,95,"Numeros_0-9_4-neuronios.txt",fourNeurons2tenClass);
+    dataSet.config(true, 100, 95, "Numeros_0-9_4-neuronios.txt", Mneurons2Int);
     dataSet.train(p);
     delete p;
 

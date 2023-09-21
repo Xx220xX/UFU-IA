@@ -7,7 +7,7 @@
 #include <cstring>
 #include <iostream>
 
-//#define USE_OMP
+#define USE_OMP
 
 Perceptron::Perceptron(int nroEntradas, int nroSaidas, REAL_TYPE alpha) : nroEntradas(nroEntradas),
                                                                           nroSaidas(nroSaidas), alpha(alpha) {
@@ -40,8 +40,9 @@ void Perceptron::achaSaidas(REAL_TYPE *v_entrada) {
     }
 }
 
-void Perceptron::arrumaPesos(REAL_TYPE *v_target) {
+bool Perceptron::arrumaPesos(REAL_TYPE *v_target) {
     t = v_target;
+    bool w_changed = false;
     int total = nroSaidas * nroEntradas;
 #ifdef USE_OMP
 #pragma  omp parallel for
@@ -51,6 +52,7 @@ void Perceptron::arrumaPesos(REAL_TYPE *v_target) {
         int j = k % nroSaidas;
         if (y[j] != t[j]) {
             w[k] = w[k] + x[i] * t[j] * alpha;
+            w_changed = true;
         }
     }
 #ifdef USE_OMP
@@ -59,8 +61,32 @@ void Perceptron::arrumaPesos(REAL_TYPE *v_target) {
     for (int j = 0; j < nroSaidas; ++j) {
         if (y[j] != t[j]) {
             b[j] = b[j] + t[j] * alpha;
+            w_changed = true;
         }
     }
+    return w_changed;
+}
+
+bool Perceptron::treinarExemplo(REAL_TYPE *v_entrada, REAL_TYPE *v_saida) {
+    x = v_entrada;
+    t = v_saida;
+    REAL_TYPE soma;
+    bool w_changed = false;
+    for (int j = 0; j < nroSaidas; ++j) {
+        soma = b[j];
+        for (int i = 0; i < nroEntradas; ++i) {
+            soma += w[i * nroSaidas + j] * x[i];
+        }
+        y[j] = soma > 0 ? 1. : -1.;
+        if (y[j] != t[j]) {
+            w_changed = true;
+            for (int i = 0; i < nroEntradas; ++i) {
+                w[i * nroSaidas + j] += alpha * x[i] * t[j];
+            }
+        }
+
+    }
+    return w_changed;
 }
 
 int Perceptron::verificaSaida(REAL_TYPE *v_target) {
@@ -85,7 +111,7 @@ double segundos() {
     return (double) ret * 1e-7;
 }
 
-std::string fourNeurons2tenClass(REAL_TYPE *output, int outputLength) {
+std::string Mneurons2Int(REAL_TYPE *output, int outputLength) {
     int x = 0;
     for (int k = 0; k < outputLength; ++k) {
         if (output[k] == 1) {
@@ -99,8 +125,7 @@ std::string oneNeuronByClass(REAL_TYPE *output, int outputLength) {
     std::string className;
     for (int k = 0; k < outputLength; ++k) {
         if (output[k] == 1) {
-            className += "0";
-            className[className.length() - 1] += k;
+            className += std::to_string(k);
         }
     }
     return className;
@@ -141,12 +166,13 @@ void DataSet::train(Perceptron *p) {
         epoch = i;
         int acertos = 0;
         REAL_TYPE R_acertos;
+        bool w_changed = false;
         ti = segundos();
         winRate = 0;
         std::cout << "Epoca " << i + 1 << ": ";
+
         for (int j = 0; j < data2train_size; ++j) {
-            p->achaSaidas(data2train[j].input.data());
-            p->arrumaPesos(data2train[j].target.data());
+            w_changed |= p->treinarExemplo(data2train[j].input.data(), data2train[j].target.data());
         }
         if (log)
             fprintf(log, "Epoca %d:\n", epoch);
@@ -157,7 +183,7 @@ void DataSet::train(Perceptron *p) {
                 fprintf(log, "%s", funcOut2Class(p->y, p->nroSaidas).c_str());
                 fprintVector(log, "%.0lf", p->y, p->nroSaidas);
                 fprintVector(log, "%.0lf", d2test->at(j).target.data(), p->nroSaidas);
-            fprintf(log, "\n");
+                fprintf(log, "\n");
             }
             R_acertos = p->verificaSaida(d2test->at(j).target.data());
             acertos += (int) R_acertos;
@@ -167,10 +193,11 @@ void DataSet::train(Perceptron *p) {
         winRate *= (100. / data2test_size);
         ti = segundos() - ti;
         printf("%.2f%% %d/%d %.4lf s\n", winRate, acertos, data2test_size, ti);
-        if (winRate > rateTarget)break;
+        if (winRate > rateTarget || !w_changed)break;
+
     }
     trainTime = segundos() - t0;
-    if (log ) {
+    if (log) {
         fclose(log);
     }
     printf("Total epocas: %d Win Rate: %.2f%% Tempo total %.4lf s\n", epoch + 1, winRate, trainTime);

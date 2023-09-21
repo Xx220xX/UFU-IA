@@ -9,7 +9,7 @@ struct MININST {
     int16_t h;
 
 };
-#define USE_BINARY 1
+#define USE_BINARY 0
 #define LOG 0
 #define EPOCAS 100
 #define TARGET 95
