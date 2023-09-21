@@ -25,7 +25,7 @@ public:
 
     void arrumaPesos(REAL_TYPE *v_target);
 
-    REAL_TYPE verificaSaida(REAL_TYPE *v_target);
+    int verificaSaida(REAL_TYPE *v_target);
 
 };
 
@@ -62,10 +62,11 @@ struct DataSet {
     bool usetrainAsTeste = 0;
 
     std::string (*funcOut2Class)(REAL_TYPE *, int);
+
+    int loadData(const char *imageFile, const char *labelFile,std::vector<Data>&v_data, bool use_binary);
 };
 
 std::string oneNeuronByClass(REAL_TYPE *output, int outputLength);
 
 std::string fourNeurons2tenClass(REAL_TYPE *output, int outputLength);
-
 #endif //CREST_PERCEPTRON_H

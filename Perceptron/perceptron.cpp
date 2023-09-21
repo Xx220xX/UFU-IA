@@ -7,7 +7,7 @@
 #include <cstring>
 #include <iostream>
 
-#define USE_OMP
+//#define USE_OMP
 
 Perceptron::Perceptron(int nroEntradas, int nroSaidas, REAL_TYPE alpha) : nroEntradas(nroEntradas),
                                                                           nroSaidas(nroSaidas), alpha(alpha) {
@@ -63,13 +63,14 @@ void Perceptron::arrumaPesos(REAL_TYPE *v_target) {
     }
 }
 
-REAL_TYPE Perceptron::verificaSaida(REAL_TYPE *v_target) {
-    REAL_TYPE acerto = 0;
-    for (int i = 0; i < nroSaidas; ++i) {
-        acerto += (y[i] == v_target[i]);
-    }
-
-    return acerto / nroSaidas;
+int Perceptron::verificaSaida(REAL_TYPE *v_target) {
+//    REAL_TYPE acerto = 0;
+//    for (int i = 0; i < nroSaidas; ++i) {
+//        acerto += (y[i] == v_target[i]);
+//    }
+//
+//    return acerto / nroSaidas;
+    return !memcmp(y, v_target, nroSaidas * sizeof(REAL_TYPE));
 }
 
 #include <Windows.h>
@@ -105,6 +106,20 @@ std::string oneNeuronByClass(REAL_TYPE *output, int outputLength) {
     return className;
 }
 
+template<typename T>
+void fprintVector(FILE *f, const char *nfmt, T *v, int length) {
+    fprintf(f, "{");
+    if (length > 0) {
+        fprintf(f, nfmt, v[0]);
+    }
+    for (int i = 1; i < length; ++i) {
+        fprintf(f, ",");
+        fprintf(f, nfmt, v[i]);
+    }
+    fprintf(f, "}");
+
+
+}
 
 void DataSet::train(Perceptron *p) {
     if (p->nroEntradas != data2train[0].input.size() || p->nroSaidas > data2train[0].target.size()) {
@@ -119,16 +134,13 @@ void DataSet::train(Perceptron *p) {
     int data2test_size = d2test->size();
     t0 = segundos();
     double ti;
-    REAL_TYPE acertos;
-    FILE *log;
-
-
-    fopen_s(&log, logFile.c_str(), "w");
-    if (!log)log = stderr;
+    FILE *log = nullptr;
+    if (!logFile.empty())
+        fopen_s(&log, logFile.c_str(), "w");
     for (int i = 0; i < maxEpoch; ++i) {
         epoch = i;
-        int acertos=0;
-        REAL_TYPE  R_acertos;
+        int acertos = 0;
+        REAL_TYPE R_acertos;
         ti = segundos();
         winRate = 0;
         std::cout << "Epoca " << i + 1 << ": ";
@@ -136,17 +148,19 @@ void DataSet::train(Perceptron *p) {
             p->achaSaidas(data2train[j].input.data());
             p->arrumaPesos(data2train[j].target.data());
         }
-        fprintf(log, "Epoca %d:\n", epoch);
+        if (log)
+            fprintf(log, "Epoca %d:\n", epoch);
         for (int j = 0; j < data2test_size; ++j) {
             p->achaSaidas(d2test->at(j).input.data());
-            fprintf(log, "\t %s is ", d2test->at(j).className.c_str());
-            if (funcOut2Class) {
+            if (log && funcOut2Class) {
+                fprintf(log, "\t %s is ", d2test->at(j).className.c_str());
                 fprintf(log, "%s", funcOut2Class(p->y, p->nroSaidas).c_str());
-
-            }
+                fprintVector(log, "%.0lf", p->y, p->nroSaidas);
+                fprintVector(log, "%.0lf", d2test->at(j).target.data(), p->nroSaidas);
             fprintf(log, "\n");
+            }
             R_acertos = p->verificaSaida(d2test->at(j).target.data());
-            acertos+=(int)R_acertos;
+            acertos += (int) R_acertos;
             winRate += R_acertos;
         }
 
@@ -156,10 +170,10 @@ void DataSet::train(Perceptron *p) {
         if (winRate > rateTarget)break;
     }
     trainTime = segundos() - t0;
-    if (log != (stderr)) {
+    if (log ) {
         fclose(log);
     }
-    printf("Total epocas: %d Win Rate: %.2f%% Tempo total %.4lf s\n", epoch, winRate, trainTime);
+    printf("Total epocas: %d Win Rate: %.2f%% Tempo total %.4lf s\n", epoch + 1, winRate, trainTime);
 
 }
 
@@ -176,8 +190,114 @@ void DataSet::config(bool usetrainAsTeste, int maxEpochc, float rateTarget, cons
     this->usetrainAsTeste = usetrainAsTeste;
     this->maxEpoch = maxEpochc;
     this->rateTarget = rateTarget;
-    this->logFile = logFile;
+    if (logFile) {
+        this->logFile = logFile;
+    } else {
+        this->logFile = "";
+    }
     this->funcOut2Class = funcOut2Class;
+}
+
+
+#define PRT(x)std::cout<<#x ": "<< x <<std::endl;
+
+uint32_t read_int_big2little(FILE *f) {
+    uint32_t num;
+    fread(&num, 4, 1, f);
+    return ((num >> 24) & 0xFF) |
+           ((num >> 8) & 0xFF00) |
+           ((num << 8) & 0xFF0000) |
+           ((num << 24) & 0xFF000000);
+}
+
+uint32_t read_int_little(FILE *f) {
+    uint32_t num;
+    fread(&num, 4, 1, f);
+    return num;
+}
+
+int DataSet::loadData(const char *imageFile, const char *labelFile, std::vector<Data> &v_data, bool use_binary) {
+#define MNIST_MAGIC_NUMBER_LITTLE  0x03080000
+#define MNIST_MAGIC_NUMBER_BIGENDIAN  0x00000803
+#define MNIST_LABEL_MAGIC_NUMBER_LITTLE 0x01080000
+#define MNIST_LABEL_MAGIC_NUMBER_BIGENDIAN 0x00000801
+
+    FILE *fim, *flb;
+    uint32_t (*read_int32)(FILE *);
+    uint32_t mnst_length;
+    int mnst_w;
+    int mnst_h;
+    int mnst_im_size;
+
+    uint32_t label_length;
+
+
+    fopen_s(&fim, imageFile, "rb");
+    if (!fim)return -1;
+    fopen_s(&flb, labelFile, "rb");
+    if (!flb) {
+        fclose(fim);
+        return -1;
+    }
+
+    read_int32 = read_int_little;
+    mnst_length = read_int_little(fim);
+
+    if (mnst_length == MNIST_MAGIC_NUMBER_LITTLE) {
+        read_int32 = read_int_big2little;
+    } else if (mnst_length != MNIST_MAGIC_NUMBER_BIGENDIAN) {
+        return -2;
+    }
+
+
+    label_length = read_int_little(flb);
+    if (label_length == MNIST_LABEL_MAGIC_NUMBER_LITTLE) {
+        read_int32 = read_int_big2little;
+    } else if (label_length != MNIST_LABEL_MAGIC_NUMBER_BIGENDIAN) {
+        return -2;
+    }
+    mnst_length = read_int32(fim);
+    label_length = read_int32(flb);
+    if (mnst_length != label_length) {
+        return -3;
+    }
+    std::cout << "Ready: " << label_length << std::endl;
+    mnst_w = read_int32(fim);
+    mnst_h = read_int32(fim);
+    mnst_im_size = mnst_h * mnst_w;
+    char className[] = "0";
+    char label;
+    unsigned char *im;
+    im = new unsigned char[mnst_h * mnst_w];
+    for (int n = 0; n < mnst_length; ++n) {
+        fread(&label, 1, 1, flb);
+        className[0] = '0' + label;
+        v_data.push_back(
+                Data(className, std::vector<REAL_TYPE>(mnst_im_size), std::vector<REAL_TYPE>(use_binary ? 4 : 10)));
+        Data &dt = v_data[v_data.size() - 1];
+        fread(im, 1, mnst_im_size, fim);
+        for (int i = 0; i < mnst_h; ++i) {
+            dt.input[i] = im[i] ? 1 : -1;
+        }
+        if (use_binary) {
+            dt.target[0] = label & 0b0001;
+            dt.target[1] = label & 0b0010;
+            dt.target[2] = label & 0b0100;
+            dt.target[3] = label & 0b1000;
+        } else {
+//            if(label==0){
+//                PRT(label)
+//            }
+            for (unsigned char i = 0; i < 10; ++i) {
+                dt.target[i] = (label == i) ? 1 : -1;
+            }
+        }
+    }
+
+    delete im;
+    fclose(flb);
+    fclose(fim);
+    return 0;
 }
 
 

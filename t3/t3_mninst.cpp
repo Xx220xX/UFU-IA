@@ -3,43 +3,58 @@
 
 using namespace std;
 
+struct MININST {
+    int32_t length;
+    int16_t w;
+    int16_t h;
 
+};
+#define USE_BINARY 1
+#define LOG 0
+#define EPOCAS 100
+#define TARGET 95
 int main(int nargs, char **args) {
-    setlocale(LC_CTYPE,"pt-BR.utf-8");
+    setlocale(LC_CTYPE, "pt-BR.utf-8");
 
-    REAL_TYPE  alpha = 0.1;
+    REAL_TYPE alpha = 0.001;
     // primeiro caso
-    cout<<"Primeiro caso, um 10 neurônios."<<endl;
-    Perceptron *p = new Perceptron(20, 10, alpha);
-    DataSet dataSet= {};
-    dataSet.loadDataTrain();
-
-    dataSet.addDataTrain(Data({"0",{-1,1,1,-1,1,-1,-1,1,1,-1,-1,1,1,-1,-1,1,-1,1,1,-1},{1,-1,-1,-1,-1,-1,-1,-1,-1,-1}}));
-    dataSet.addDataTrain(Data({"1",{-1,1,-1,-1,1,1,-1,-1,-1,1,-1,-1,-1,1,-1,-1,1,1,1,-1},{-1,1,-1,-1,-1,-1,-1,-1,-1,-1}}));
-    dataSet.addDataTrain(Data({"2",{-1,1,1,-1,1,-1,-1,1,-1,-1,1,-1,-1,1,-1,-1,1,1,1,1},{-1,-1,1,-1,-1,-1,-1,-1,-1,-1}}));
-    dataSet.addDataTrain(Data({"3",{1,1,1,-1,-1,-1,-1,1,-1,-1,1,-1,-1,-1,-1,1,1,1,1,-1},{-1,-1,-1,1,-1,-1,-1,-1,-1,-1}}));
-    dataSet.addDataTrain(Data({"4",{1,-1,1,-1,1,-1,1,-1,1,1,1,-1,-1,-1,1,-1,-1,-1,1,-1},{-1,-1,-1,-1,1,-1,-1,-1,-1,-1}}));
-    dataSet.addDataTrain(Data({"5",{1,1,1,1,1,-1,-1,-1,1,1,1,-1,-1,-1,-1,1,1,1,1,-1},{-1,-1,-1,-1,-1,1,-1,-1,-1,-1}}));
-    dataSet.addDataTrain(Data({"6",{-1,1,1,1,1,-1,-1,-1,1,1,1,-1,1,-1,-1,1,-1,1,1,-1},{-1,-1,-1,-1,-1,-1,1,-1,-1,-1}}));
-    dataSet.addDataTrain(Data({"7",{1,1,1,1,-1,-1,-1,1,-1,-1,1,-1,-1,1,-1,-1,-1,1,-1,-1},{-1,-1,-1,-1,-1,-1,-1,1,-1,-1}}));
-    dataSet.addDataTrain(Data({"8",{-1,1,1,-1,1,-1,-1,1,-1,1,1,-1,1,-1,-1,1,-1,1,1,-1},{-1,-1,-1,-1,-1,-1,-1,-1,1,-1}}));
-    dataSet.addDataTrain(Data({"9",{-1,1,1,-1,1,-1,-1,1,-1,1,1,1,-1,-1,-1,1,1,1,1,1},{-1,-1,-1,-1,-1,-1,-1,-1,-1,1}}));
-    dataSet.config(true,100,95,"Numeros_0-9_10-neuronios.txt",oneNeuronByClass);
+#if USE_BINARY == 1
+    cout << "Segundo caso, um 4 neurônios." << endl;
+#else
+    cout << "Primeiro caso, um 10 neurônios." << endl;
+#endif
+    DataSet dataSet = {};
+    int erro;
+    erro = dataSet.loadData("dataset/train-images.idx3-ubyte", "dataset/train-labels.idx1-ubyte", dataSet.data2train,
+#if USE_BINARY == 1
+    true
+#else
+                            false
+#endif
+                            );
+    cout << "load train:" << erro << endl;
+    erro = dataSet.loadData("dataset/t10k-images.idx3-ubyte", "dataset/t10k-labels.idx1-ubyte", dataSet.data2test,false);
+    cout << "load test:" << erro << endl;
+    Perceptron *p;
+    p = new Perceptron(dataSet.data2train[0].input.size(), dataSet.data2train[0].target.size(), alpha);
+//    dataSet.data2train.resize(1000);
+//    dataSet.data2test.resize(100);
+    dataSet.config(false,EPOCAS,TARGET,
+#if LOG == 1
+#if USE_BINARY == 1
+            "MNIST-4neuronios.txt"
+                   ,
+                   fourNeurons2tenClass);
+#else
+                   "MNIST-10neuronios.txt"
+                   ,oneNeuronByClass);
+#endif
+#else
+                   nullptr, nullptr);
+#endif;
     dataSet.train(p);
-    delete p;
-    p = new Perceptron(20, 4, alpha);
-    cout<<"Segundo caso, 4 neurônios."<<endl;
-    for (int i = 0; i < 10; ++i) {
-        std::vector<REAL_TYPE> target = {-1,-1,-1,-1};
-        dataSet.data2train[i].target[0] = (i&0b0001)?1:-1;
-        dataSet.data2train[i].target[1] = (i&0b0010)?1:-1;
-        dataSet.data2train[i].target[2] = (i&0b0100)?1:-1;
-        dataSet.data2train[i].target[3] = (i&0b1000)?1:-1;
-    }
-    dataSet.config(true,100,95,"Numeros_0-9_4-neuronios.txt",fourNeurons2tenClass);
-    dataSet.train(p);
-    delete p;
 
-//    system("pause");
+    delete p;
+    system("pause");
     return 0;
 }
