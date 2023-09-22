@@ -72,6 +72,9 @@ bool Perceptron::treinarExemplo(REAL_TYPE *v_entrada, REAL_TYPE *v_saida) {
     t = v_saida;
     REAL_TYPE soma;
     bool w_changed = false;
+#ifdef USE_OMP
+#pragma  omp parallel for
+#endif
     for (int j = 0; j < nroSaidas; ++j) {
         soma = b[j];
         for (int i = 0; i < nroEntradas; ++i) {
@@ -212,8 +215,7 @@ void DataSet::addDataTest(Data test) {
     this->data2test.push_back(test);
 }
 
-void DataSet::config(bool usetrainAsTeste, int maxEpochc, float rateTarget, const char *logFile,
-                     std::string (*funcOut2Class)(REAL_TYPE *, int)) {
+void DataSet::config(bool usetrainAsTeste, int maxEpochc, float rateTarget, const char *logFile,std::string (*funcOut2Class)(REAL_TYPE *, int)) {
     this->usetrainAsTeste = usetrainAsTeste;
     this->maxEpoch = maxEpochc;
     this->rateTarget = rateTarget;
