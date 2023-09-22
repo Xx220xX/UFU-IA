@@ -149,6 +149,8 @@ void fprintVector(FILE *f, const char *nfmt, T *v, int length) {
 
 }
 
+#define FPRINTF(f, format, ...) if(f)fprintf(f,format,##__VA_ARGS__)
+
 void DataSet::train(Perceptron *p) {
     if (p->nroEntradas != data2train[0].input.size() || p->nroSaidas > data2train[0].target.size()) {
         std::cerr << "Invalid Size" << std::endl;
@@ -163,47 +165,60 @@ void DataSet::train(Perceptron *p) {
     t0 = segundos();
     double ti;
     FILE *log = nullptr;
-    if (!logFile.empty())
+    FILE *log2 = nullptr;
+    if (!logFile.empty()) {
         fopen_s(&log, logFile.c_str(), "w");
-    for (int i = 0; i < maxEpoch; ++i) {
+        fopen_s(&log2, ("info_" + logFile).c_str(), "w");
+    }
+    FPRINTF(log, "\\begin{table}[H]\n"
+                 "\\centering\n"
+                 "\\begin{tabular}{|c|c|c|c|}\n"
+                 "\\hline\n"
+                 "Época & Taxa de Acerto & Tempo de Treinamento (s) \\\\\n"
+                 "\\hline\n");
+        bool w_changed;
+        int acertos;
+    for (int i = 1; i <= maxEpoch; ++i) {
         epoch = i;
-        int acertos = 0;
-        REAL_TYPE R_acertos;
-        bool w_changed = false;
+        acertos = 0;
+        w_changed = false;
         ti = segundos();
         winRate = 0;
-        std::cout << "Epoca " << i + 1 << ": ";
-
+        std::cout << "Epoca " << i << ": ";
+        FPRINTF(log2,"Epoca %d\n",epoch);
         for (int j = 0; j < data2train_size; ++j) {
             w_changed |= p->treinarExemplo(data2train[j].input.data(), data2train[j].target.data());
         }
-        if (log)
-            fprintf(log, "Epoca %d:\n", epoch);
+
+
         for (int j = 0; j < data2test_size; ++j) {
             p->achaSaidas(d2test->at(j).input.data());
-            if (log && funcOut2Class) {
-                fprintf(log, "\t %s is ", d2test->at(j).className.c_str());
-                fprintf(log, "%s", funcOut2Class(p->y, p->nroSaidas).c_str());
-                fprintVector(log, "%.0lf", p->y, p->nroSaidas);
-                fprintVector(log, "%.0lf", d2test->at(j).target.data(), p->nroSaidas);
-                fprintf(log, "\n");
+            if (log2 && funcOut2Class) {
+                fprintf(log2, "\t %s is ", d2test->at(j).className.c_str());
+                fprintf(log2, "%s", funcOut2Class(p->y, p->nroSaidas).c_str());
+                fprintVector(log2, "%.0lf", p->y, p->nroSaidas);
+                fprintVector(log2, "%.0lf", d2test->at(j).target.data(), p->nroSaidas);
+                fprintf(log2, "\n");
             }
-            R_acertos = p->verificaSaida(d2test->at(j).target.data());
-            acertos += (int) R_acertos;
-            winRate += R_acertos;
+            acertos += p->verificaSaida(d2test->at(j).target.data());
         }
-
-        winRate *= (100. / data2test_size);
+        winRate = acertos*(100. / data2test_size);
         ti = segundos() - ti;
         printf("%.2f%% %d/%d %.4lf s\n", winRate, acertos, data2test_size, ti);
+        FPRINTF(log, "%d & %.2lf\\%% & %.5lf \\\\\n", epoch, winRate,ti);
         if (winRate > rateTarget || !w_changed)break;
-
     }
+    FPRINTF(log,"\\hline\n"
+    "\\end{tabular}\n"
+    "\\caption{__CAPTION__}\n"
+    "\\label{tab:__label__}\n"
+    "\\end{table}");
     trainTime = segundos() - t0;
     if (log) {
         fclose(log);
+        fclose(log2);
     }
-    printf("Total epocas: %d Win Rate: %.2f%% Tempo total %.4lf s\n", epoch + 1, winRate, trainTime);
+    printf("Total epocas: %d Win Rate: %.2f%% Tempo total %.4lf s\n", epoch , winRate, trainTime);
 
 }
 
@@ -215,7 +230,8 @@ void DataSet::addDataTest(Data test) {
     this->data2test.push_back(test);
 }
 
-void DataSet::config(bool usetrainAsTeste, int maxEpochc, float rateTarget, const char *logFile,std::string (*funcOut2Class)(REAL_TYPE *, int)) {
+void DataSet::config(bool usetrainAsTeste, int maxEpochc, float rateTarget, const char *logFile,
+                     std::string (*funcOut2Class)(REAL_TYPE *, int)) {
     this->usetrainAsTeste = usetrainAsTeste;
     this->maxEpoch = maxEpochc;
     this->rateTarget = rateTarget;
