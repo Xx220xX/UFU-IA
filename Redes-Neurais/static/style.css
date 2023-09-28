@@ -1,0 +1,40 @@
+body {
+    background-image: url("/background");
+    background-size: 100% auto;
+    /*position: relative;*/
+    color: white;
+}
+
+
+table {
+    background-color: rgba(98, 95, 95, 0.75); /* Cor de fundo com 10% de transparência */
+    text-align: center;
+    color: white;
+}
+tbody tr:hover{
+    background: rgba(72, 73, 72, 0.3);
+    scale: 101%;
+}
+
+.semiTransparente {
+    background-color: rgba(255, 246, 246, 0.75);
+}
+
+/*canvas {*/
+/*    border: 1px solid #000;*/
+/*}*/
+
+/*.canvas-container {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /*background-color: #f5f5f5; !* Cor de fundo do footer *!*/
+  background-color: rgba(245, 245, 245, 0.32);
+    padding: 0;
+}

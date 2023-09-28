@@ -1,0 +1,17 @@
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+Época & Taxa de Acerto & Tempo de Treinamento (s) \\
+\hline
+1 & 10.00\% & 0.00049 \\
+2 & 70.00\% & 0.00072 \\
+3 & 40.00\% & 0.00079 \\
+4 & 90.00\% & 0.00040 \\
+5 & 80.00\% & 0.00040 \\
+6 & 100.00\% & 0.03789 \\
+\hline
+\end{tabular}
+\caption{__CAPTION__}
+\label{tab:__label__}
+\end{table}
