@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela Bootstrap</title>
+    <title>Rede Neural</title>
     <!-- Inclua os arquivos CSS e JS do Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h2>Tabela Bootstrap</h2>
+    <h2>Conjunto de dados disponíveis</h2>
     <table class="table table-dark" id="tabelaDatasets">
         <thead>
         <tr>
@@ -39,7 +39,7 @@
     function handleRowClick(element) {
         const rowIndex = element.getAttribute('data-index');
         const dataset = datasets[rowIndex];
-        window.location.href = `/dataset/${dataset.id}`;
+        window.location.href = `/?datasetid=${dataset.id}`;
     }
 
     fetch('/datasets', {
@@ -47,11 +47,8 @@
         headers: {'Content-Type': 'application/json'},
     }).then(response => response.json())
         .then(response => {
-            console.log(response)
-
             datasets = response;
             tbody.innerHTML = '';
-
             for (let i in datasets) {
                 const dataset = datasets[i];
                 const row = document.createElement('tr');

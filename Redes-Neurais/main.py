@@ -1,4 +1,4 @@
-from flask import Flask, render_template, send_file, abort, send_from_directory, request, jsonify, Response
+from flask import Flask, render_template, send_file, abort, send_from_directory, request, jsonify, Response, redirect
 from flask_cors import CORS
 import os
 from RedeNeural import *
@@ -9,8 +9,23 @@ app = Flask('Redes Neurais', static_url_path='/static', static_folder='static')
 cors = CORS(app)
 
 
+@app.route('/select')
+def select():
+    return send_from_directory('static', 'escolherDataSet.html'), 200
+
+
 @app.route('/')
-def home(): return send_from_directory('static', 'escolherDataSet.html'), 200
+def home():
+    global dataSet
+    header = request.args
+    if 'datasetid' not in header:
+        return redirect('/select')
+    datase_id_int = int(header['datasetid'])
+
+    if datase_id_int < 0 or datase_id_int >= len(dataSets):
+        abort(404)
+    dataSet = dataSets[datase_id_int]
+    return send_from_directory('static', 'treinar.html'), 200
 
 
 @app.route('/datasets', methods=['GET'])
@@ -23,13 +38,12 @@ def getDatasets():
         id += 1
     return jsonify(data), 200
 
-@app.route('/dataset/<id>', methods=['GET'])
-def paginaDataSet(id):
-    id = int(id)
-    print("aquiiii")
-    if id < 0 or id >= len(dataSets):
+
+@app.route('/dataset', methods=['GET'])
+def getDataset():
+    if dataSet is None:
         abort(404)
-    return jsonify(dataSets[id].toDict()), 200
+    return jsonify({"name": dataSet.name})
 
 
 @app.route('/favicon.ico')
@@ -37,11 +51,12 @@ def favicon(): return send_from_directory('static', 'favicon.jpeg', mimetype='im
 
 
 @app.route('/style.css')
-def style(): return send_from_directory('static', 'style.css'), 200
+def style():
+    return send_from_directory('static', 'style.css'), 200
 
 
-@app.route('/index.js')
-def indexjs(): return send_from_directory('static', 'index.js'), 200
+@app.route('/script.js')
+def script(): return send_from_directory('static', 'script.js', mimetype='application/javascrip'), 200
 
 
 @app.route('/background')
@@ -55,8 +70,9 @@ def checkKeys(data, keys):
     return True, None
 
 
-dataSet: DataSet = None
-from Datasets import dataSets
+from Datasets import *
+
+dataSet: DataSet = dataSets[0]
 
 
 @app.route('/createDataSet', methods=['POST'])
@@ -104,6 +120,45 @@ def addSample():
     else:
         # Se o content type não for JSON, retorne um erro
         return jsonify({'erro': 'O corpo da requisição deve conter JSON'}), 400
+
+
+@app.route('/treinar', methods=['POST'])
+def treinar():
+    if request.is_json:
+        body = request.get_json(force=True)
+        ok, misskey = checkKeys(body, ['max_epoca', 'winHate', 'alpha'])
+        if not ok:
+            return jsonify({'erro': f"miss param '{misskey}'"}), 400
+        dataSet.config(RNA(dataSet.nro_entrada, dataSet.nro_saida, body['alpha']), body['max_epoca'], body['winHate'])
+        if dataSet.treinarAssyncrono():
+            return '{"message":"created"}', 200
+        else:
+            return jsonify({'erro': 'alread running'}), 400
+    return jsonify({'erro': 'O corpo da requisição deve conter JSON'}), 400
+
+
+@app.route('/update', methods=['GET'])
+def update():
+    offset = 0
+    args = request.args
+    if 'offset' in args:
+        offset = int(args['offset'])
+    info = dataSet.getInfo(offset)
+    return jsonify(info), 200
+
+
+@app.route('/network', methods=['GET'])
+def network():
+    w = []
+    for i in range(dataSet.rna.nro_entrada):
+        l = []
+        for j in range(dataSet.rna.nro_saida):
+            l.append(float(dataSet.rna.w[i][j]))
+        w.append(l)
+    b = []
+    for j in range(dataSet.rna.nro_saida):
+        b.append(float(dataSet.rna.b[0][j]))
+    return jsonify(dict(w=w, b=b)), 200
 
 
 app.run(debug=False, load_dotenv=False, host='0.0.0.0', port=80)

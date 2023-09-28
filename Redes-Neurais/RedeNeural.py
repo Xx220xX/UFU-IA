@@ -5,24 +5,27 @@ from threading import Thread, Lock
 
 class RNA:
     def __init__(self, nro_entrada, nro_saida, alpha=0.1, theta=0):
-        self.w = np.random.normal(0.5, 0.1, (nro_entrada, nro_saida)).astype("float")
-        self.b = np.random.normal(0.25, 0.05, (1, nro_saida)).astype("float")
+        self.w = np.random.uniform(-0.5, 0.5, (nro_entrada, nro_saida)).astype("float")
+        self.b = np.random.uniform(-0.5, 0.5, (1, nro_saida)).astype("float")
         self.alpha = alpha
         self.theta = theta
-        self.y = np.array((1, nro_saida), dtype=float)
-        self.x = np.array((1, nro_entrada), dtype=float)
+        self.nro_entrada = nro_entrada
+        self.nro_saida = nro_saida
+        self.y = None  # np.array((1, nro_saida), dtype=float)
+        self.x = None  # np.array((1, nro_entrada), dtype=float)
 
     def calcularSaida(self, s):
-        self.x = np.array(s)
-        y_liq = (self.x @ self.w) + self.b
-        self.y = (y_liq >= self.theta) * 2 - 1
+        self.x = s.reshape((1, self.nro_entrada))
+        self.y = (self.x @ self.w) + self.b
 
     def ajustarPesos(self, t):
-        if (self.y != t).all():
-            d_w = self.alpha * np.transpose((t - self.y) @ self.x)
-            d_b = self.alpha * self.y
-            self.w += d_w
-            self.b += d_b
+        # if (self.y != t).all():
+        t = t.reshape((1, self.nro_saida))
+        d_z = (t - self.y)
+        d_w = self.x.transpose() @ d_z * self.alpha
+        d_b = self.alpha * d_z
+        self.w += d_w
+        self.b += d_b
         return np.sum((t - self.y) ** 2) / len(t)  # erro
 
     def aprender(self, entrada, target):
@@ -51,7 +54,6 @@ class Sample:
 
 class DataSet:
     def __init__(self, nro_entrada, nro_saida, name):
-        self.rna = RNA(nro_entrada, nro_saida)
         self.name = name
         self.thread = None
         self.nro_saida = nro_saida
@@ -65,7 +67,7 @@ class DataSet:
         self.running = False
         self.lock = Lock()
 
-    def config(self, rna, maximoEpocas, taxaAcertoMinimo, useTrainAsTest=False, alpha=0.1):
+    def config(self, rna, maximoEpocas, taxaAcertoMinimo):
         self.maximoEpocas = maximoEpocas
         self.taxaAcertoMinimo = taxaAcertoMinimo
         self.erroPorEpoca = []
@@ -73,9 +75,8 @@ class DataSet:
         self.running = False
         self.result = True
         self.rna = rna
-        if useTrainAsTest:
+        if len(self.test) == 0:
             self.test = self.train
-        self.rna.alpha = alpha
         return self
 
     def put(self, samples, isForTest=False):
@@ -107,7 +108,7 @@ class DataSet:
                 acerto = 0
                 self.rna.saveLast()
                 for sample in self.train:
-                    erro += self.rna.treinar(sample.entrada, sample.target)
+                    erro += self.rna.aprender(sample.entrada, sample.target)
                 for sample in self.test:
                     acerto += self.rna.avalia(sample.entrada, sample.target)
                 if self.rna.compareLast():
@@ -115,6 +116,8 @@ class DataSet:
                 acerto = 100 / len(self.test) * acerto
                 erro = erro / len(self.train)
                 self.setInfo(erro, acerto)
+                if acerto >= self.taxaAcertoMinimo:
+                    break
         except Exception as e:
             print(e)
         self.running = False

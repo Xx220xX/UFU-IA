@@ -1,6 +1,7 @@
 body {
     background-image: url("/background");
     background-size: 100% auto;
+    padding: 0;
     /*position: relative;*/
     color: white;
 }
@@ -11,13 +12,14 @@ table {
     text-align: center;
     color: white;
 }
-tbody tr:hover{
+
+tbody tr:hover {
     background: rgba(72, 73, 72, 0.3);
     scale: 101%;
 }
 
 .semiTransparente {
-    background-color: rgba(255, 246, 246, 0.75);
+    background-color: rgba(255, 246, 246, 0.88);
 }
 
 /*canvas {*/
@@ -31,10 +33,10 @@ tbody tr:hover{
 /*}*/
 
 footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
     /*background-color: #f5f5f5; !* Cor de fundo do footer *!*/
-  background-color: rgba(245, 245, 245, 0.32);
+    background-color: rgba(245, 245, 245, 0.32);
     padding: 0;
+    margin: 0;
 }

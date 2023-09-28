@@ -1,80 +1,132 @@
 const buttonTreinar = document.getElementById('treinarBtn');
+const buttonCalcular = document.getElementById('calcularBtn');
+const dropdownNeuronio = document.getElementById("dropdown-neuronio")
 const inp_maximo_epocas = document.getElementById("maximo_epocas");
 const inp_expectWinRate = document.getElementById("expectWinRate");
 const inp_alpha = document.getElementById("alpha");
-
+const title = document.getElementById("titulo");
+const form_rede = document.getElementById("form_rede");
 const epocas = [];
 const erros = [];
+const acertos = [];
+const curva_neuronio = [];
+const eixo_neuronio = [];
+const ponto = [{}]
+
+
 const dadosDispersao = [{x: 1, y: 10}];
 
 // Configuração do gráfico de linha
 const ctxLinha = document.getElementById('graficoLinha').getContext('2d');
+const verde = 'rgb(150,243,17)';
+const azul = 'rgba(75, 192, 192, 1)';
 const graficoLinha = new Chart(ctxLinha, {
     type: 'line',
     data: {
         labels: epocas,
         datasets: [{
             label: 'Erro',
+            yAxisID: 'y-axis-1',
             data: erros,
-            borderColor: 'rgba(75, 192, 192, 1)',
+            borderColor: azul,
             borderWidth: 2
-        }]
-    }
-});
-
-// Configuração do gráfico de dispersão
-const ctxDispersao = document.getElementById('graficoDispersao').getContext('2d');
-const graficoDispersao = new Chart(ctxDispersao, {
-    type: 'scatter',
-    data: {
-        datasets: [{
-            label: 'Dados de Dispersão',
-            data: dadosDispersao,
-            backgroundColor: 'rgba(255, 99, 132, 0.7)'
-        }]
+        }, {
+            label: 'Taxa de acertos',
+            yAxisID: 'y-axis-2',
+            data: acertos,
+            borderColor: verde,
+            borderWidth: 2
+        }
+        ]
     },
     options: {
         scales: {
-            x: {
+            'y-axis-1': {
                 type: 'linear',
-                position: 'bottom'
+                position: 'left', // Eixo esquerdo
+
             },
-            y: {
-                min: 0,
-                max: 12
+            'y-axis-2': {
+                type: 'linear',
+                position: 'right', // Eixo direito
+
             }
+
+        },
+        animation: {
+            duration: 400, // Define a duração da animação para 500 milissegundos (0,5 segundos)
+        }
+    }
+});
+const ctxrede = document.getElementById('grafico da rede').getContext('2d');
+
+const graficoRede = new Chart(ctxrede, {
+    type: 'line',
+    data: {
+        labels: eixo_neuronio,
+        datasets: [{
+            label: 'Curva do Neurônio',
+            data: curva_neuronio,
+            borderColor: verde,
+            borderWidth: 2
+        }, {
+            label: 'Pontinho',
+            data: ponto,
+            borderWidth: 2,
+            pointRadius: 5,
+            borderColor: 'rgb(0,0,0)',
+            backgroundColor: 'rgb(75, 192, 192)'
+        }
+        ]
+    },
+    options: {
+        scales: {},
+        animation: {
+            duration: 400, // Define a duração da animação para 500 milissegundos (0,5 segundos)
         }
     }
 });
 
 
+const network = {}
+
 const randInt = (max) => Math.floor(Math.random() * max);
 
 function updateStatusTreino() {
+    buttonTreinar.disabled = true;
     // fazer um get e obter a lista de pontos atualizada passando o len
-    const len = randInt(50);
-    let req_erro = [];
-    let finalizouTreino = false;
-    for (let i = 0; i < len; i++) {
-        req_erro.push(100 * Math.exp((-epocas.length - i) / 200));
-    }
-    for (let e of req_erro) {
-        epocas.push(epocas.length);
-        erros.push(e);
-    }
-    if (epocas.length > 200) {
-        finalizouTreino = true;
-    }
+    fetch(`/update?offset=${epocas.length}`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    })
+        .then(response => response.json())
+        .then(response => {
+            let finalizouTreino = false;
+
+            for (let i in response.erroPorEpoca) {
+                epocas.push(epocas.length);
+                erros.push(response.erroPorEpoca[i]);
+                acertos.push(response.acertoPorEpoca[i]);
+            }
+            if (response.running == false) {
+                finalizouTreino = true;
+            }
 
 
-    //dadosDispersao.push({x: epocas.length, y: Math.random() * 10});
-    graficoLinha.update();
-    //graficoDispersao.update();
-    if (!finalizouTreino)
-        setTimeout(updateStatusTreino, 100);
-    else {
-        buttonTreinar.disabled = false;
-    }
+            //dadosDispersao.push({x: epocas.length, y: Math.random() * 10});
+            graficoLinha.update();
+            //graficoDispersao.update();
+            if (!finalizouTreino) {
+                setTimeout(updateStatusTreino, 100);
+            } else {
+                buttonTreinar.disabled = false;
+                pegarRede();
+            }
+        })
+        .catch(err => {
+            buttonTreinar.disabled = false;
+            console.error(err)
+        });
 }
 
 
@@ -83,29 +135,48 @@ buttonTreinar.addEventListener('click', () => {
     buttonTreinar.disabled = true;
     epocas.splice(0, epocas.length);
     erros.splice(0, erros.length);
-
-
-    let _data = {
-        maximo_epocas: inp_maximo_epocas.value,
-        alpha: inp_alpha.value,
-        expectWinRate: expectWinRate.value,
-        code: 200
-    }
-    let url = "/teste";
-    const options = {
+    fetch("/treinar", {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(_data)
-    };
-    console.log(options)
-
-    fetch(url, options)
+        body: JSON.stringify({
+            'max_epoca': parseInt(inp_maximo_epocas.value),
+            'winHate': parseFloat(inp_expectWinRate.value),
+            'alpha': parseFloat(inp_alpha.value)
+        })
+    })
         .then(response => response.json())
-        .then(response => console.log(response))
-        .catch(err => console.error(err));
+        .then(response => {
+            updateStatusTreino();
+        })
+        .catch(err => {
+            buttonTreinar.disabled = false;
+            console.error(err)
+        });
 
-    updateStatusTreino();
 
+});
+buttonCalcular.addEventListener('click', () => {
+    if (!('w' in network && 'b' in network)) return;
+    let x = []
+    let w = network.w;
+    let b = network.b;
+    for (let i in w) {
+        let el = document.getElementById(`rede-x[${i}]`);
+        x.push(parseFloat(el.value))
+    }
+    ponto[0].x = x[0];
+    ponto[0].y = x[1];
+    graficoRede.update()
+    let saida = [];
+    for (j in b) {
+        let y = b[j];
+        for (let i in w) {
+            y += w[i][j] * x[i];
+        }
+        saida.push(y)
+    }
+
+    draw(x, saida, w, b)
 });
 
 
@@ -127,7 +198,7 @@ function draw(entrada, saida, w, b) {
     for (let i = 0; i < saida.length; i++) {
         const x = canvas.width - raioNeuronio * 2;
         const y = sep_saida * (i + 0.5);
-        console.log(x, y, canvas.width, canvas.height)
+
         let cor = saida[i] > 0 ? "blue" : "red";
 
         let circulo = new fabric.Circle({
@@ -137,7 +208,7 @@ function draw(entrada, saida, w, b) {
             top: y
         });
 // Criar um texto
-        let texto = new fabric.Text(`${saida[i]}`, {
+        let texto = new fabric.Text(`${saida[i].toFixed(3)}`, {
             left: circulo.left + circulo.width / 2, // Ajustar a posição horizontal do texto
             top: circulo.top + circulo.height / 2,  // Ajustar a posição vertical do texto
             fill: 'Black',        // Cor do texto
@@ -158,7 +229,6 @@ function draw(entrada, saida, w, b) {
     for (let i = 0; i < entrada.length; i++) {
         const x = 0;
         const y = sep_entrada * (i + 1.5);
-        console.log(x, y, canvas.width, canvas.height)
         let cor = entrada[i] > 0 ? "blue" : "red";
         let retangulo = new fabric.Rect({
             left: x, // Posição horizontal
@@ -170,7 +240,7 @@ function draw(entrada, saida, w, b) {
             strokeWidth: 2 // Largura// da borda
         });
 // Criar um texto
-        let texto = new fabric.IText(`${entrada[i]}`, {
+        let texto = new fabric.IText(`${entrada[i].toFixed(3)}`, {
             left: retangulo.left + retangulo.width / 2, // Ajustar a posição horizontal do texto
             top: retangulo.top + retangulo.height / 2,  // Ajustar a posição vertical do texto
             fill: 'Black',        // Cor do texto
@@ -179,17 +249,16 @@ function draw(entrada, saida, w, b) {
             fontSize: textSize,
             originX: 'center', // Define o ponto de origem horizontal no centro
             originY: 'center', // Define o ponto de origem vertical no centro
-            editable:true
+            editable: true
         });
 // Agrupar o círculo e o texto
         let grupo = new fabric.Group([retangulo, texto], {
             selectable: false,       // Impedir a seleção do grupo
-            editable:true
+            editable: true
 
         });
         grupo.on('mousedown', function (options) {
             let target = options.target;
-            console.log(target)
             if (target && target.type === 'i-text') {
                 target.enterEditing();
                 target.selectAll();
@@ -204,7 +273,6 @@ function draw(entrada, saida, w, b) {
     //bias
     let x = width;
     let y = sep_entrada * (.5);
-    console.log(x, y, canvas.width, canvas.height)
     let cor = "blue";
     let retangulo = new fabric.Rect({
         left: x, // Posição horizontal
@@ -234,7 +302,7 @@ function draw(entrada, saida, w, b) {
     canvas.add(grupo);
 
     // conectar
-    let pesos = w;
+    let pesos = copiarMatriz(w);
     pesos.splice(0, 0, b);
 
     // Crie uma linha para conectar os grupos
@@ -243,8 +311,8 @@ function draw(entrada, saida, w, b) {
             let input = rede.entradas[i];
             let output = rede.neuronios[j];
             let peso = pesos[i][j];
-            console.log(input)
-            let line = new fabric.Line([input.left + input.width , input.top + input.height / 2,
+
+            let line = new fabric.Line([input.left + input.width, input.top + input.height / 2,
                 output.left, output.top + output.height / 2], {
                 stroke: 'black',
                 strokeWidth: 2,
@@ -255,18 +323,97 @@ function draw(entrada, saida, w, b) {
 
 // Crie o texto e configure o ângulo
             let text = new fabric.Text(`${peso}`, {
-                left: line.left+line.width/2,
-                top: line.top+line.height/2,
+                left: line.left + line.width / 2,
+                top: line.top + line.height / 2,
                 angle: angle,
                 originX: 'center',
                 originY: 'bottom',
-                fontSize:14,
+                fontSize: 14,
             });
-            let linhas = new fabric.Group([line, text],{selectable: false});
+            let linhas = new fabric.Group([line, text], {selectable: false});
             canvas.add(linhas);
         }
     }
 
 }
 
-draw([1, 2, -2.1], [-1, 1.2], [[1, 2], [-1, 2], [3, 2.]], [0.1, 0.4])
+function pegarRede() {
+    // draw([1, 2, -2.1], [-1, 1.2], [[1, 2], [-1, 2], [3, 2.]], [0.1, 0.4])
+    fetch(`/network`, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'},
+    }).then(response => response.json())
+        .then(response => {
+            network.w = response.w;
+            network.b = response.b;
+            let form = ''
+            for (let i in network.w) {
+                form += `<input id="rede-x[${i}]" type="number" class="form-control" placeholder="x${i}" aria-label="Username">\n`;
+            }
+            form_rede.innerHTML = form;
+            desenharRede();
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+}
+
+function geraCurva(j) {
+    let s0 = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
+
+    eixo_neuronio.splice(0, eixo_neuronio.length);
+    curva_neuronio.splice(0, curva_neuronio.length);
+
+    let fun = (x, w, b) => -(x * w[0][j] + b[j]) / w[1][j]
+    for (let i in s0) {
+        let y = fun(s0[i], network.w, network.b);
+        eixo_neuronio.push(s0[i]);
+        curva_neuronio.push(y);
+    }
+    graficoRede.update();
+
+}
+
+function desenharRede() {
+    dropdownNeuronio.innerHTML = ''
+    for (let i in network.b) {
+        let a = document.createElement('a');
+        a.className = "dropdown-item";
+        a.addEventListener('click', () => {
+            geraCurva(i);
+        });
+        a.innerHTML = `Neuronio ${i}`
+        dropdownNeuronio.appendChild(a);
+    }
+    geraCurva(0)
+
+}
+
+function copiarMatriz(matriz) {
+    var novaMatriz = [];
+    for (var i = 0; i < matriz.length; i++) {
+        novaMatriz[i] = matriz[i].slice(); // Use o método slice para copiar os elementos da linha
+    }
+    return novaMatriz;
+}
+
+fetch(`/dataset`, {
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'},
+}).then(response => response.json())
+    .then(response => {
+        dataset = response;
+        title.innerHTML = dataset.name;
+    })
+    .catch(err => {
+        console.error(err);
+        window.location.href = '/';
+    });
+// network.w = [
+//     [0.1],
+//     [0.2]
+// ];
+// network.b = [0.1]
+// geraCurva(0)
+
