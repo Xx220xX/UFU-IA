@@ -10,10 +10,9 @@ const epocas = [];
 const erros = [];
 const acertos = [];
 const curva_neuronio = [];
-const eixo_neuronio = [];
 const ponto = [{}]
-const pontosTreinoA = [{}]
-const pontosTreinoB = [{}]
+const pontosTreinoA = []
+const pontosTreinoB = []
 
 const dataset = {}
 
@@ -67,7 +66,6 @@ const ctxrede = document.getElementById('grafico da rede').getContext('2d');
 const graficoRede = new Chart(ctxrede, {
     type: 'line',
     data: {
-        labels: eixo_neuronio,
         datasets: [{
             label: 'Curva do Neurônio',
             data: curva_neuronio,
@@ -104,14 +102,17 @@ const graficoRede = new Chart(ctxrede, {
     options: {
         scales: {
             x: {
-                min: -10,
-                max: 10
+                // min: -6,
+                // max: 6,
+                type: 'linear',
+                position: 'bottom',
             },
             y: {
-                min: -6,
-                max: 6
+                // min: -6,
+                // max: 6,
+                type: 'linear',
+                position: 'left',
             }
-
         },
         animation: {
             duration: 400,
@@ -397,28 +398,31 @@ function pegarRede() {
 }
 
 function geraCurva(j) {
-    let x0 = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
-    eixo_neuronio.splice(0, eixo_neuronio.length);
+    let x0 = [0,0]
+
+
     curva_neuronio.splice(0, curva_neuronio.length);
     pontosTreinoA.splice(0, pontosTreinoA.length);
     pontosTreinoB.splice(0, pontosTreinoB.length);
-
-    let fun = (x, w, b) => -(x * w[0][j] + b[j]) / w[1][j]
-    for (let i in x0) {
-        let y = fun(x0[i], network.w, network.b);
-        //console.log(x0[i],y,network.w[0][j]*x0[i]+network.w[1][j]*y+network.b[j])
-        eixo_neuronio.push(x0[i]);
-        curva_neuronio.push(y);
-    }
-
+    x0[0] = dataset.train[0][0][0];
+    x0[1] = dataset.train[0][0][1];
     for (let s of dataset.train) {
-        console.log(s)
+        if(x0[0] > s[0][0])x0[0] = s[0][0];
+        if(x0[1] < s[0][1])x0[1] = s[0][1];
         if (s[1][0] > 0) {
             pontosTreinoA.push({x: s[0][0], y: s[0][1]})
         } else {
             pontosTreinoB.push({x: s[0][0], y: s[0][1]})
         }
     }
+    let fun = (x, w, b) => -(x * w[0][j] + b[j]) / w[1][j]
+    for (let i in x0) {
+        let y = fun(x0[i], network.w, network.b);
+        //console.log(x0[i],y,network.w[0][j]*x0[i]+network.w[1][j]*y+network.b[j])
+        curva_neuronio.push({x: x0[i], y: y});
+    }
+
+
 
     graficoRede.update();
 
