@@ -26,7 +26,7 @@ class RNA:
         d_b = self.alpha * d_z
         self.w += d_w
         self.b += d_b
-        return np.sum((t - self.y) ** 2) / len(t)  # erro
+        return np.sum((t - self.y) ** 2) / (2*len(t))  # erro
 
     def aprender(self, entrada, target):
         self.calcularSaida(entrada)
