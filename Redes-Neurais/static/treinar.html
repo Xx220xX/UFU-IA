@@ -12,14 +12,16 @@
 </head>
 <body>
 <div class="container">
-    <h1 id="titulo">Carregando</h1>
+    <a href="select">
+        <h1 id="titulo" >Carregando</h1>
+    </a>
     <div class="input-group mb-3">
         <input id="maximo_epocas" type="number" step='1' class="form-control" placeholder="Máximo de épocas"
-               aria-label="Username">
+               aria-label="Username" value="100">
         <input id="expectWinRate" type="number" min="0" max="100" step="0.1" class="form-control"
-               placeholder="Taxa de acerto satisfatória" aria-label="Username">
+               placeholder="Taxa de acerto satisfatória" aria-label="Username" value="100">
         <input id="alpha" type="number" min="0" max="1" step="0.001" class="form-control" placeholder="alpha"
-               aria-label="Server">
+               aria-label="Server" value="0.01">
     </div>
     <!-- Botão de treinamento -->
     <button id="treinarBtn" class="btn btn-primary">Treinar</button>

@@ -18,9 +18,9 @@ class RNA:
         self.x = s.reshape((1, self.nro_entrada))
         self.y = (self.x @ self.w) + self.b
 
-    def ajustarPesos(self, t):
+    def ajustarPesos(self, target):
         # if (self.y != t).all():
-        t = t.reshape((1, self.nro_saida))
+        t = target.reshape((1, self.nro_saida))
         d_z = (t - self.y)
         d_w = self.x.transpose() @ d_z * self.alpha
         d_b = self.alpha * d_z
@@ -42,7 +42,9 @@ class RNA:
     def avalia(self, entrada, target):
         self.calcularSaida(entrada)
         saida = np.where(self.y > 0, 1, -1)
-        return (saida == target).all()
+        result = 1 if (saida == target).all() else 0
+        print(self.y,saida, target,result,flush=True)
+        return result
 
 
 class Sample:
@@ -111,6 +113,7 @@ class DataSet:
                     erro += self.rna.aprender(sample.entrada, sample.target)
                 for sample in self.test:
                     acerto += self.rna.avalia(sample.entrada, sample.target)
+                print(acerto,'of', len(self.test),flush=True)
                 if self.rna.compareLast():
                     break
                 acerto = 100 / len(self.test) * acerto
@@ -143,31 +146,3 @@ class DataSet:
 
     def toDict(self):
         return dict(name=self.name, nro_entrada=self.nro_entrada, nro_saida=self.nro_saida)
-#
-#
-# # Funcao logica OR
-# s = np.array([-1, -1,
-#               -1, 1,
-#               1, -1,
-#               1, 1], dtype=float)
-# t = np.array([-1, -1,
-#               1, 1,
-#               1, 1,
-#               1, 1], dtype=float)
-#
-# continuar = True
-#
-# nro_target = 2
-# nro_entrada = 2
-# cases = 4
-#
-# p = RNA(nro_target, nro_entrada)
-# epoca = 1
-#
-# while continuar and epoca < 10:
-#     print("----- Epoca ", epoca, " -----")
-#     continuar = p.treinar(cases, s, t)
-#     print("\nt: ", t)
-#     print("w: ", p.w)
-#     print("b: ", p.b, "\n")
-#     epoca += 1

@@ -1,7 +1,7 @@
 from RedeNeural import *
 
 dataSets: list[DataSet] = [
-    DataSet(2, 1, 'Exemplo de aula - 1 neuronio').put([
+    DataSet(2, 1, 'Dataset trabalho - 1 neuronio').put([
         ["B", [2.215, 2.063], [-1]],
         ["A", [0.224, 1.586], [1]],
         ["A", [0.294, 0.651], [1]],
@@ -23,7 +23,7 @@ dataSets: list[DataSet] = [
         ["B", [2.764, 1.149], [-1]],
         ["B", [1.947, 1.598], [-1]]
     ]),
-    DataSet(2, 2, 'Exemplo de aula - 2 neuronio').put([
+    DataSet(2, 2, 'Dataset trabalho - 2 neuronio').put([
         ["B", [2.215, 2.063], [-1, 1]],
         ["A", [0.224, 1.586], [1, -1]],
         ["A", [0.294, 0.651], [1, -1]],

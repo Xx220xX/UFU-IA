@@ -43,7 +43,10 @@ def getDatasets():
 def getDataset():
     if dataSet is None:
         abort(404)
-    return jsonify({"name": dataSet.name})
+    lista = []
+    for dt in dataSet.train:
+        lista.append([dt.entrada.tolist(), dt.target.tolist()])
+    return jsonify({"name": dataSet.name, "train": lista})
 
 
 @app.route('/favicon.ico')

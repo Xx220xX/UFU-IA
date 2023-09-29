@@ -12,6 +12,10 @@ const acertos = [];
 const curva_neuronio = [];
 const eixo_neuronio = [];
 const ponto = [{}]
+const pontosTreinoA = [{}]
+const pontosTreinoB = [{}]
+
+const dataset = {}
 
 
 const dadosDispersao = [{x: 1, y: 10}];
@@ -75,14 +79,42 @@ const graficoRede = new Chart(ctxrede, {
             borderWidth: 2,
             pointRadius: 5,
             borderColor: 'rgb(0,0,0)',
-            backgroundColor: 'rgb(75, 192, 192)'
-        }
+            backgroundColor: 'rgb(255,221,0)',
+            showLine: false
+        }, {
+            label: 'Dados +1',
+            data: pontosTreinoA,
+            borderWidth: 2,
+            pointRadius: 5,
+            borderColor: 'rgb(0,0,0)',
+            backgroundColor: 'rgb(48,167,241)',
+            showLine: false
+        }, {
+            label: 'Dados -1',
+            data: pontosTreinoB,
+            borderWidth: 2,
+            pointRadius: 5,
+            borderColor: 'rgb(0,0,0)',
+            backgroundColor: 'rgb(255,0,0)',
+            showLine: false
+        },
+
         ]
     },
     options: {
-        scales: {},
+        scales: {
+            x: {
+                min: -10,
+                max: 10
+            },
+            y: {
+                min: -6,
+                max: 6
+            }
+
+        },
         animation: {
-            duration: 400, // Define a duração da animação para 500 milissegundos (0,5 segundos)
+            duration: 400,
         }
     }
 });
@@ -92,7 +124,7 @@ const network = {}
 
 const randInt = (max) => Math.floor(Math.random() * max);
 
-function updateStatusTreino() {
+function updateStatusTreino(lastrun = false) {
     buttonTreinar.disabled = true;
     // fazer um get e obter a lista de pontos atualizada passando o len
     fetch(`/update?offset=${epocas.length}`, {
@@ -108,7 +140,7 @@ function updateStatusTreino() {
                 erros.push(response.erroPorEpoca[i]);
                 acertos.push(response.acertoPorEpoca[i]);
             }
-            if (response.running == false) {
+            if (response.running === false) {
                 finalizouTreino = true;
             }
 
@@ -116,6 +148,10 @@ function updateStatusTreino() {
             //dadosDispersao.push({x: epocas.length, y: Math.random() * 10});
             graficoLinha.update();
             //graficoDispersao.update();
+            if (lastrun) {
+                buttonTreinar.disabled = false;
+                return;
+            }
             if (!finalizouTreino) {
                 setTimeout(updateStatusTreino, 100);
             } else {
@@ -352,6 +388,7 @@ function pegarRede() {
             }
             form_rede.innerHTML = form;
             desenharRede();
+            setTimeout(updateStatusTreino, 100, true);
         })
         .catch(err => {
             console.error(err);
@@ -360,17 +397,29 @@ function pegarRede() {
 }
 
 function geraCurva(j) {
-    let s0 = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
-
+    let x0 = [-6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6]
     eixo_neuronio.splice(0, eixo_neuronio.length);
     curva_neuronio.splice(0, curva_neuronio.length);
+    pontosTreinoA.splice(0, pontosTreinoA.length);
+    pontosTreinoB.splice(0, pontosTreinoB.length);
 
     let fun = (x, w, b) => -(x * w[0][j] + b[j]) / w[1][j]
-    for (let i in s0) {
-        let y = fun(s0[i], network.w, network.b);
-        eixo_neuronio.push(s0[i]);
+    for (let i in x0) {
+        let y = fun(x0[i], network.w, network.b);
+        //console.log(x0[i],y,network.w[0][j]*x0[i]+network.w[1][j]*y+network.b[j])
+        eixo_neuronio.push(x0[i]);
         curva_neuronio.push(y);
     }
+
+    for (let s of dataset.train) {
+        console.log(s)
+        if (s[1][0] > 0) {
+            pontosTreinoA.push({x: s[0][0], y: s[0][1]})
+        } else {
+            pontosTreinoB.push({x: s[0][0], y: s[0][1]})
+        }
+    }
+
     graficoRede.update();
 
 }
@@ -403,8 +452,9 @@ fetch(`/dataset`, {
     headers: {'Content-Type': 'application/json'},
 }).then(response => response.json())
     .then(response => {
-        dataset = response;
-        title.innerHTML = dataset.name;
+        title.innerHTML = response.name;
+        dataset.name = response.name;
+        dataset.train = response.train;
     })
     .catch(err => {
         console.error(err);
