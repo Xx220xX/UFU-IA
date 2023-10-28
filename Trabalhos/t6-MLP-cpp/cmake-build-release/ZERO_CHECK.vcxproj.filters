@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\cmake-build-release\CMakeFiles\57fcde9a4b16833160fe1f8ca943b47f\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F65089A6-5C4E-329B-8C1F-3FC931938886}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

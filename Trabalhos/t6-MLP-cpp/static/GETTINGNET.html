@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Deep Network</title>
+    <!-- Adicione os links para os arquivos CSS do Bootstrap 5.3 aqui -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container mt-5">
+    <h1>Criar Deep Network</h1>
+    <button type="button" class="btn btn-primary mt-2" id="btnSend" onclick="sendNet()">Gerar Rede</button>
+    <form>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="input-nepocas">Número de epocas:</label>
+                    <input type="number" class="form-control" value="100" id="input-nepocas" name="neuronios-entrada">
+                </div>
+                <div class="col">
+                    <label for="input-alpha-saida">Alpha Saída:</label>
+                    <input type="number" value="0.1" class="form-control" id="input-alpha-saida" name="alpha-saida">
+                </div>
+                <div class="col">
+                    <label for="select-funcao-saida">Função de Ativação Saída:</label>
+                    <select class="form-select" id="select-funcao-saida" name="funcao-ativacao-saida">
+                        <option value="tanh">Tanh</option>
+                        <option value="tan">Tan</option>
+                        <option value="sigmoid">Sigmoid</option>
+                        <option value="relu">ReLU</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="camadas-ocultas">
+            <!-- Camadas Ocultas serão adicionadas dinamicamente aqui -->
+        </div>
+
+        <button type="button" class="btn btn-primary mt-2" id="adicionar-camada">Adicionar Camada</button>
+    </form>
+</div>
+
+<script>
+    const camadasOcultas = document.getElementById("camadas-ocultas");
+    const adicionarCamadaBtn = document.getElementById("adicionar-camada");
+    const Iepocas = document.getElementById('input-nepocas');
+    const Ioalpha = document.getElementById('input-alpha-saida');
+    const Ifsaida = document.getElementById('select-funcao-saida');
+    const btnSend = document.getElementById('btnSend');
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+        function  addlayer() {
+            const novaCamada = document.createElement("div");
+            novaCamada.classList.add("form-group");
+
+            novaCamada.innerHTML = `
+          <div class="row ">
+            <div class="col">
+              <label>Neurônios de Saída:</label>
+              <input type="number" value="10" class="form-control" name="neuronios-saida">
+            </div>
+            <div class="col">
+              <label>Alpha:</label>
+              <input type="number" value="0.1" class="form-control" name="taxa-aprendizado">
+            </div>
+            <div class="col">
+              <label>Função de Ativação:</label>
+              <select class="form-select" name="funcao-ativacao">
+               <option value="tanh">Tanh</option>
+                <option value="tan">Tan</option>
+                <option value="sigmoid">Sigmoid</option>
+                <option value="relu">ReLU</option>
+              </select>
+            </div>
+            <div class="col d-flex align-items-end">
+              <button type="button" class="btn btn-danger btn-remove">Remover</button>
+            </div>
+          </div>
+        `;
+
+            camadasOcultas.appendChild(novaCamada);
+
+            // Adicionar um ouvinte de evento de clique para o botão "Remover"
+            const btnRemove = novaCamada.querySelector(".btn-remove");
+            btnRemove.addEventListener("click", function () {
+                camadasOcultas.removeChild(novaCamada);
+            });
+
+
+
+        }
+
+        adicionarCamadaBtn.addEventListener("click", addlayer);
+
+
+    });
+    function getNet() {
+        const camadasOcultasDivs = camadasOcultas.querySelectorAll(".form-group");
+        const funcaoSaida = Ifsaida.value;
+        const alphaSaida = parseFloat(Ioalpha.value);
+        const epocas = parseFloat(Iepocas.value);
+
+        const camadasArray = [];
+
+        camadasOcultasDivs.forEach((camadaDiv) => {
+            const neuroniosSaida = parseInt(camadaDiv.querySelector('input[name="neuronios-saida"]').value);
+            const alpha = parseFloat(camadaDiv.querySelector('input[name="taxa-aprendizado"]').value);
+            const funcaoAtivacao = camadaDiv.querySelector('select[name="funcao-ativacao"]').value;
+
+            camadasArray.push({
+                neuroniosSaida,
+                alpha,
+                funcaoAtivacao,
+            });
+        });
+
+      return  {
+            epocas:epocas,
+            alphaSaida:alphaSaida ,
+            funcaoSaida:funcaoSaida,
+            camadasOcultas: camadasArray,
+        };
+
+    }
+
+    function sendNet(){
+        btnSend.disabled = true;
+        const net  = getNet();
+        console.log(net)
+        fetch('/setNet', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(net)
+        }).then((response) => {
+            if (response.status === 200) {
+                location.reload();
+            } else {
+                console.log(response.status)
+                // Outros códigos de status inesperados
+                // alert('Ocorreu um erro ao enviar a rede.');
+                btnSend.disabled = false;
+            }
+        });
+    }
+</script>
+</body>
+</html>

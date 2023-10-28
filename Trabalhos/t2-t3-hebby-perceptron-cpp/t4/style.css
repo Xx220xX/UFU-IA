@@ -1,0 +1,60 @@
+body{
+    background-image: url("/background");
+    background-size: 100% auto;
+}
+.semiTransparente{
+    background-color: rgba(255, 246, 246, 0.75);
+}
+.container{
+    text-align: center;
+}
+canvas {
+    border: 1px solid #000;
+}
+.canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-logo {
+    color: #f8f9fa;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #f8f9fa;
+    text-decoration: none;
+}
+
+.footer-social {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-social li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-social a {
+    color: #f8f9fa;
+    text-decoration: none;
+    font-size: 20px;
+}

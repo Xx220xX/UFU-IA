@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adaline e Regressão Linear</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .tela-cheia {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white; /* Pode personalizar a cor de fundo */
+            z-index: 9999; /* Garante que a div esteja acima de outros elementos */
+        }
+
+        .custom-progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #ccc;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #007bff;
+            transition: width 0.4s;
+        }
+
+        .progress-thumb {
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="maximo_epocas" step='1' placeholder="Máximo de épocas">
+        <label for="maximo_epocas">Máximo de épocas</label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="number" class="form-control" id="alpha" min="0" max="1" step="0.001"
+               placeholder="Máximo de épocas">
+        <label for="alpha">Taxa de aprendizado alpha</label>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button onclick="call_treinar()" class="btn btn-primary" id="btn-start" type="button">Treinar</button>
+    </div>
+
+    <p id="status-area" class="text-break">STATUS:</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="border p-3">
+                    <div id="area-1">
+                        <canvas id="metrics" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="border p-3">
+                    <div id="area-2">
+                        <div class="custom-progress-bar">
+                            <div id="progressFill" class="progress-bar-fill"></div>
+                            <div id="progressThumb" class="progress-thumb"></div>
+                        </div>
+                        <canvas id="mapa" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div id="status" style="user-select: none;"></div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Época</th>
+                    <th scope="col">MSE</th>
+                    <th scope="col">RMSE</th>
+                    <th scope="col">MAE</th>
+                    <th scope="col">R²</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="col" id="st_epoca"></th>
+                    <th scope="col" id="st_MSE"></th>
+                    <th scope="col" id="st_RMSE"></th>
+                    <th scope="col" id="st_MAE"></th>
+                    <th scope="col" id="st_R2"></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Coeficiente de Pearson</th>
+                <th scope="col">Coeficiente de determinação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="col" id="st_pearson"></th>
+                <th scope="col" id="st_determinacao"></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
+
+
+</body>
+<script>
+
+    class DadosGrafico {
+        setData(points, MaxEpoca) {
+            this.points.length = 0;
+            points.forEach(el => {
+                this.points.push(el);
+            });
+            this.minx = points[0].x;
+            this.maxx = points[0].x;
+
+            for (let i in points) {
+                if (points[i].x > this.maxx) this.maxx = points[i].x;
+                if (points[i].x < this.minx) this.minx = points[i].x;
+            }
+            this.minx = this.minx - this.maxx * 0.1;
+            this.maxx = this.maxx + this.maxx * 0.1;
+
+
+            const metricsPointRadios = 0;
+            const metricsBorderRadius = 1;
+            this.metrics = new Chart(this.contextMetrics, {
+                type: 'line',
+                data: {
+                    labels: this.epocas,
+                    datasets: [
+                        {
+                            label: 'MSE',
+                            data: this.MSE,
+                            borderColor: 'rgb(1,255,0)',
+                            color: 'rgb(1,255,200)',
+                            borderWidth: metricsBorderRadius,
+                            pointRadius: metricsPointRadios,
+                            showLine: true
+                        },
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            title: {
+                                display: true,
+                                text: 'Época',
+                            },
+                        },
+                        y: {
+                            type: 'linear',
+                            position: 'left',
+
+                        },
+                    },
+                    animation: {
+                        duration: 400, // Define a duração da animação para 500 milissegundos (0,5 segundos)
+                    }
+                }
+            });
+            this.contextMapa = document.getElementById('mapa').getContext('2d');
+            this.mapa = new Chart(this.contextMapa, {
+                type: 'line',
+                data: {
+                    datasets: [
+                        {
+                            label: `Base de dados`,
+                            data: this.points,
+                            pointRadius: 3,
+                            borderColor: 'rgb(0,0,0)',
+                            color: 'rgb(247,255,0)',
+                            borderWidth: 1,
+                            showLine: false
+                        }, {
+                            label: 'Multi Layer Perceptron',
+                            data: this.perceptron,
+                            borderColor: 'rgb(16,148,241)',
+                            borderWidth: 2,
+                            showLine: true
+                        },
+                    ]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            min: this.minx,
+                            max: this.maxx,
+                            type: 'linear',
+                            position: 'bottom',
+                        },
+                        y: {
+                            type: 'linear',
+                            position: 'left',
+                        }
+                    }
+                }
+            });
+        }
+
+        constructor(points, MaxEpoca) {
+            this.points = [];
+            this.perceptron = [];
+            this.perceptronByEpocas = []
+            this.epocas = []
+            this.erro = []
+            this.MaxEpoca = MaxEpoca;
+            this.contextMetrics = document.getElementById('metrics').getContext('2d');
+            this.mapa = null;
+            this.metrics = null;
+        }
+
+
+        show(i) {
+            if (i >= this.perceptronByEpocas.length || i < 0) {
+                console.log('Epoca invalida', epoca, this.adalineEpocas.length)
+                return
+            }
+            this.perceptron.length = 0;
+            this.perceptronByEpocas[i].forEach((e) => this.perceptron.push(e));
+            this.mapa.update('none');
+        }
+    }
+
+    class ProgressBar {
+        constructor(customProgressBar = '.custom-progress-bar', progressFill = 'progressFill', progressThumb = 'progressThumb') {
+            this.customProgressBar = document.querySelector(customProgressBar);
+            this.progressFill = document.getElementById(progressFill);
+            this.progressThumb = document.getElementById(progressThumb);
+            this.progressActive = false;
+            this.st = document.getElementById("status");
+            this.length = -1;
+            this.last = -1;
+            this.updateProgress(0);
+            this.customProgressBar.addEventListener('mousedown', (e) => {
+                const clickX = e.clientX - this.customProgressBar.getBoundingClientRect().left;
+                this.updateProgress(clickX);
+                this.progressActive = true;
+                // st.innerText = "down";
+            });
+            document.addEventListener('mouseup', (e) => {
+                if (this.progressActive) {
+                    this.progressActive = false;
+                    // this.st.innerText = "up";
+                }
+            });
+            document.addEventListener('mousemove', (e) => {
+                if (!this.progressActive) return;
+                // this.st.innerText = "move";
+                const clickX = e.clientX - this.customProgressBar.getBoundingClientRect().left;
+                this.updateProgress(clickX, true)
+            });
+        }
+
+        updateProgress(clickX) {
+            const progressBarWidth = this.customProgressBar.offsetWidth;
+            let progress = (clickX / progressBarWidth);
+            let i = Math.round(progress * (this.length - 1));
+            i = i < 0 ? 0 : i >= this.length ? this.length - 1 : i;
+            this.updatePosition(i, true)
+        }
+
+
+        updatePosition(i, isuser = false) {
+            let progress = 0;
+            console.log(i)
+            if (i === this.last) return;
+            if (this.length < 0) {
+                i = -1;
+                progress = 0;
+                this.st.innerText = ``
+            } else {
+                this.last = i;
+                let epoca = dadosGrafico.epocas[i];
+                progress = (i) / (this.length - 1) * 100;
+                document.getElementById("st_epoca").innerText = epoca;
+                if (this.length > 0) dadosGrafico.show(i);
+
+            }
+            this.progressFill.style.width = `${progress}%`;
+            this.progressThumb.style.left = `${progress}%`;
+
+        }
+    }
+
+    const dadosGrafico = new DadosGrafico();
+    const progress = new ProgressBar();
+
+    fetch('/data', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+
+    }).then((response) => {
+        if (response.status === 200) {
+
+
+
+        } else {
+            console.log(response.status)
+            // Outros códigos de status inesperados
+            alert('Ocorreu um erro ao enviar os dados.');
+        }
+    });
+</script>
+
+</html>

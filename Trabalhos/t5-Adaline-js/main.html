@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Adaline e Regressão Linear</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+        .tela-cheia {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white; /* Pode personalizar a cor de fundo */
+            z-index: 9999; /* Garante que a div esteja acima de outros elementos */
+        }
+
+        .custom-progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #ccc;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #007bff;
+            transition: width 0.4s;
+        }
+
+        .progress-thumb {
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-floating mb-3">
+        <input type="number" class="form-control" id="maximo_epocas" step='1' placeholder="Máximo de épocas">
+        <label for="maximo_epocas">Máximo de épocas</label>
+    </div>
+    <div class="form-floating mb-2">
+        <input type="number" class="form-control" id="alpha" min="0" max="1" step="0.001"
+               placeholder="Máximo de épocas">
+        <label for="alpha">Taxa de aprendizado alpha</label>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button onclick="call_treinar()" class="btn btn-primary" id="btn-start" type="button">Treinar</button>
+    </div>
+
+    <p id="status-area" class="text-break">STATUS:</p>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="border p-3">
+                    <div id="area-1">
+                        <canvas id="metrics" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="border p-3">
+                    <div id="area-2">
+                        <div class="custom-progress-bar">
+                            <div id="progressFill" class="progress-bar-fill"></div>
+                            <div id="progressThumb" class="progress-thumb"></div>
+                        </div>
+                        <canvas id="mapa" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div id="status" style="user-select: none;"></div>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Época</th>
+                    <th scope="col">MSE</th>
+                    <th scope="col">RMSE</th>
+                    <th scope="col">MAE</th>
+                    <th scope="col">R²</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="col" id="st_epoca"></th>
+                    <th scope="col" id="st_MSE"></th>
+                    <th scope="col" id="st_RMSE"></th>
+                    <th scope="col" id="st_MAE"></th>
+                    <th scope="col" id="st_R2"></th>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Coeficiente de Pearson</th>
+                <th scope="col">Coeficiente de determinação</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="col" id="st_pearson"></th>
+                <th scope="col" id="st_determinacao"></th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="main.js"></script>
+
+</html>

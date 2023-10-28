@@ -1,0 +1,3 @@
+C:/Users/hslhe/CLionProjects/IAUFU/cmake-build-debug/CMakeFiles/IAUFU.dir
+C:/Users/hslhe/CLionProjects/IAUFU/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/hslhe/CLionProjects/IAUFU/cmake-build-debug/CMakeFiles/rebuild_cache.dir

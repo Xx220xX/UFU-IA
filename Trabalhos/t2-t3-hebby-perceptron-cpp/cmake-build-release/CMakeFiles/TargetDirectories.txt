@@ -1,0 +1,9 @@
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/cppRestApi.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/perceptronApi.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/CREST.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/T2.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/T3.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/T3M.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/T4.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/ALL_BUILD.dir
+C:/Users/hslhe/CLionProjects/CREST/cmake-build-release/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Editor de JavaScript</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/codemirror.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.58.3/mode/javascript/javascript.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+    <style>
+
+        /* Estilos para o CodeMirror */
+        .CodeMirror {
+            border: 2px solid #ccc; /* Adiciona uma borda de 2px sólida com a cor #ccc */
+
+        }
+
+        #codearea {
+            width: 80%; /* Define a largura para 400px */
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Define a altura para 300px */
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-5" id="codearea">
+    <h1 class="text-center">Editor de JavaScript</h1>
+
+    <div class="form-group">
+        <label for="code">Código JavaScript:</label>
+        <textarea id="code" rows="10" cols="50" class="form-control">// Digite seu código JavaScript</textarea>
+    </div>
+
+    <button onclick="executarCodigo()" class="btn btn-primary">Executar Código</button>
+    <button onclick="treinarRede()" id="btnTreinar" disabled class="btn btn-primary">Criar rede</button>
+
+    <h2 class="mt-3">Resultado:</h2>
+    <div id="resultado"></div>
+    <canvas id="mapa" width="400" height="200"></canvas>
+</div>
+
+<div class="container mt-5">
+</div>
+<script>
+    const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: "javascript",
+        lineNumbers: true,
+        readOnly: false,
+    })
+
+    setTimeout(() => {
+        editor.setValue(`// Digite seu código JavaScript aqui\n// addPoint(x,y)
+const n = 100;
+for (let i = 0; i < n; i++) {
+  const x = i / n;
+  const y = Math.sin(x * Math.PI * 2);
+  addPoint(x,y)
+}
+`)
+    }, 100)
+
+    const points = [];
+
+    function executarCodigo() {
+
+        const code = `
+                const points = [];
+
+                function addPoint(x,y){
+                    points.push({x:x,y:y});
+                }
+
+                ${editor.getValue()}
+
+                return points;
+                `
+        const resultado = document.getElementById('resultado');
+        try {
+            const funcao = new Function(code);
+            const lpoints = funcao();
+            points.length = 0;
+            lpoints.forEach((element) => {
+                points.push(element);
+            });
+            resultado.innerHTML = `${points.length} dados para treino `
+            mapa.update()
+            btnTreinar.disabled = false
+        } catch (error) {
+            resultado.innerHTML = "Erro: " + error.message;
+        }
+    }
+
+    function treinarRede() {
+        btnTreinar.disabled = true;
+        fetch('/upload', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(points)
+        }).then((response) => {
+            if (response.status === 200) {
+                location.reload();
+            } else {
+                console.log(response.status)
+                // Outros códigos de status inesperados
+                alert('Ocorreu um erro ao enviar os dados.');
+                btnTreinar.disabled = false;
+            }
+        });
+    }
+
+
+    const btnTreinar = document.getElementById('btnTreinar')
+    const mapaCTX = document.getElementById('mapa').getContext('2d');
+    const mapa = new Chart(mapaCTX, {
+        type: 'line',
+        data: {
+            datasets: [
+                {
+                    label: 'Dados',
+                    data: points,
+                    borderColor: 'rgb(0,250,33)',
+                    borderWidth: 1,
+                    pointRadius: 2,
+                    showLine: false
+                }
+            ]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Época',
+                    },
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left',
+
+                },
+            },
+            animation: {
+                duration: 400, // Define a duração da animação para 500 milissegundos (0,5 segundos)
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

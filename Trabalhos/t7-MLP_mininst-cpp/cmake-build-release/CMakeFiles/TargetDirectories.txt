@@ -1,0 +1,6 @@
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t7-MLP_mininst-cpp/cmake-build-release/CMakeFiles/MPLCpp.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t7-MLP_mininst-cpp/cmake-build-release/CMakeFiles/MPL2Cpp.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t7-MLP_mininst-cpp/cmake-build-release/CMakeFiles/t7_MLP_mininst_cpp.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t7-MLP_mininst-cpp/cmake-build-release/CMakeFiles/t7_MLP2_mininst_cpp.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t7-MLP_mininst-cpp/cmake-build-release/CMakeFiles/edit_cache.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t7-MLP_mininst-cpp/cmake-build-release/CMakeFiles/rebuild_cache.dir

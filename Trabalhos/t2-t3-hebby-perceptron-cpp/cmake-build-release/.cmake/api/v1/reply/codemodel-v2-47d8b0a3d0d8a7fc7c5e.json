@@ -1,0 +1,480 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CREST",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-b9c19332726a999e1922.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CREST::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CREST-Debug-f4b6160cd8308f0ff44e.json",
+					"name" : "CREST",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T2-Debug-c1d80dc8b6e55ad8d376.json",
+					"name" : "T2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3-Debug-fa0891a22e3829b55fdc.json",
+					"name" : "T3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3M::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3M-Debug-88d51231e301fb0ab4fe.json",
+					"name" : "T3M",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T4-Debug-f40fbf574c69d7903d07.json",
+					"name" : "T4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-29295d16af77151019f3.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cppRestApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cppRestApi-Debug-801f30b801da5c83dbd9.json",
+					"name" : "cppRestApi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "perceptronApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-perceptronApi-Debug-e4020c8c85d8897e49fc.json",
+					"name" : "perceptronApi",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CREST",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-b9c19332726a999e1922.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CREST::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CREST-Release-9ea925298d781e3f9eb4.json",
+					"name" : "CREST",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T2-Release-eee96d71ff1ec0f3485c.json",
+					"name" : "T2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3-Release-dd3f97519129a1ba17a0.json",
+					"name" : "T3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3M::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3M-Release-58be972b7a066528aead.json",
+					"name" : "T3M",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T4-Release-2f713ab85e7086002407.json",
+					"name" : "T4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-29295d16af77151019f3.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cppRestApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cppRestApi-Release-06b5012ff0e3257bf665.json",
+					"name" : "cppRestApi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "perceptronApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-perceptronApi-Release-386a0df2946f01fbe273.json",
+					"name" : "perceptronApi",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CREST",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-b9c19332726a999e1922.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CREST::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CREST-MinSizeRel-6fa03a986753e9b72c5b.json",
+					"name" : "CREST",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T2-MinSizeRel-e3365c31f65e38bd4a61.json",
+					"name" : "T2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3-MinSizeRel-1215042c180a408d0537.json",
+					"name" : "T3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3M::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3M-MinSizeRel-40d379fee9e30e0e3b13.json",
+					"name" : "T3M",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T4-MinSizeRel-95d65287a5df8091e22d.json",
+					"name" : "T4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-29295d16af77151019f3.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cppRestApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cppRestApi-MinSizeRel-aa5cfd8d92ec20b25d03.json",
+					"name" : "cppRestApi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "perceptronApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-perceptronApi-MinSizeRel-bc9f1903a9cefe155bfd.json",
+					"name" : "perceptronApi",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.25"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "CREST",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-b9c19332726a999e1922.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "CREST::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-CREST-RelWithDebInfo-3178352dc576eb5941c6.json",
+					"name" : "CREST",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T2-RelWithDebInfo-f4478249fc6971b2cad3.json",
+					"name" : "T2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3-RelWithDebInfo-a97734f94cc9a15951aa.json",
+					"name" : "T3",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T3M::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T3M-RelWithDebInfo-0165e5719c6f767905c3.json",
+					"name" : "T3M",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "T4::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-T4-RelWithDebInfo-0eb9f3e4d1d093442033.json",
+					"name" : "T4",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-29295d16af77151019f3.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "cppRestApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cppRestApi-RelWithDebInfo-8b14854db51c8ff38fa6.json",
+					"name" : "cppRestApi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "perceptronApi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-perceptronApi-RelWithDebInfo-2ba16fac1a29e6248ce8.json",
+					"name" : "perceptronApi",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/hslhe/CLionProjects/CREST/cmake-build-release",
+		"source" : "C:/Users/hslhe/CLionProjects/CREST"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

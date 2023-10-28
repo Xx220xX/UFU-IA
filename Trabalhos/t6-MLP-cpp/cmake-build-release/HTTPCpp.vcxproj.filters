@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\http\json.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\http\httpserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\http\sha256.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\http\json.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\http\httpserver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\http\sha256.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BAC728BE-D8D0-353D-A874-00FDFAC375DF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2AF00078-6757-3487-999A-8275B749E05C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

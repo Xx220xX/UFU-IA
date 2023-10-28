@@ -1,0 +1,52 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "SHA256::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "MPLCpp::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "HTTPCpp::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "t6MPLtest::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "t6Http::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df"
+		}
+	],
+	"folder" : 
+	{
+		"name" : "CMakePredefinedTargets"
+	},
+	"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+	"isGeneratorProvided" : true,
+	"name" : "ALL_BUILD",
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}

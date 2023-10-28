@@ -1,0 +1,24 @@
+GET / HTTP/1.1
+Host: [2804:1e68:c201:c5a9:fcb2:8446:6341:b8a5]:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://[2804:1e68:c201:c5a9:fcb2:8446:6341:b8a5]:8080/login
+Accept-Encoding: gzip, deflate
+Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: 7b0a2265787069726522203a20313639373433313132372e3030303030302c0a227573657222203a202261646d696e220a7d.0452e7aae4d66561cef9b3b567d490dd9e17b3f16f8a39ec424828c163d6c0d7
+
+
+--------------
+GET / HTTP/1.1
+Host: [2804:1e68:c201:c5a9:fcb2:8446:6341:b8a5]:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36 OPR/102.0.0.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
+Referer: http://[2804:1e68:c201:c5a9:fcb2:8446:6341:b8a5]:8080/login
+Accept-Encoding: gzip, deflate
+Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7
+Cookie: 7b0a2265787069726522203a20313639373433313132372e3030303030302c0a227573657222203a202261646d696e220a7d.0452e7aae4d66561cef9b3b567d490dd9e17b3f16f8a39ec424828c163d6c0d7
+

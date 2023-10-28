@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\html\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\hslhe\CLionProjects\UFU-MESTRADO\Trabalhos\t6-MLP-cpp\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2AF00078-6757-3487-999A-8275B749E05C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

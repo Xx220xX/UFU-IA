@@ -1,0 +1,408 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "t6_MLP_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Debug-2957476c9a4d643711e3.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HTTPCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HTTPCpp-Debug-1efb4417cc9903c851e8.json",
+					"name" : "HTTPCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MPLCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MPLCpp-Debug-59353cffb1dadfd98d9f.json",
+					"name" : "MPLCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SHA256::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SHA256-Debug-0ba72795770ca0499d8b.json",
+					"name" : "SHA256",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Debug-b6aae787b7bfc29825b6.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6Http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6Http-Debug-ca8814802527bb0b35d4.json",
+					"name" : "t6Http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6MPLtest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6MPLtest-Debug-7dc2d4825aaf19c7f47d.json",
+					"name" : "t6MPLtest",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "t6_MLP_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-Release-2957476c9a4d643711e3.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HTTPCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HTTPCpp-Release-67733e3110b4dc2a8836.json",
+					"name" : "HTTPCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MPLCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MPLCpp-Release-3c4be885ae04a8768845.json",
+					"name" : "MPLCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SHA256::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SHA256-Release-3a11d28b760b5aeec243.json",
+					"name" : "SHA256",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-Release-b6aae787b7bfc29825b6.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6Http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6Http-Release-84e425848eadb187b50f.json",
+					"name" : "t6Http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6MPLtest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6MPLtest-Release-743779efcded9fb4c135.json",
+					"name" : "t6MPLtest",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "MinSizeRel",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "t6_MLP_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-MinSizeRel-2957476c9a4d643711e3.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HTTPCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HTTPCpp-MinSizeRel-6d33a72e6ee086a61b5d.json",
+					"name" : "HTTPCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MPLCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MPLCpp-MinSizeRel-283d05fb38bef162f07f.json",
+					"name" : "MPLCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SHA256::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SHA256-MinSizeRel-a7f8a297864ccdc41a55.json",
+					"name" : "SHA256",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-MinSizeRel-b6aae787b7bfc29825b6.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6Http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6Http-MinSizeRel-bd1a38f19d3d8723b54a.json",
+					"name" : "t6Http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6MPLtest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6MPLtest-MinSizeRel-341e023f7800888bf951.json",
+					"name" : "t6MPLtest",
+					"projectIndex" : 0
+				}
+			]
+		},
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"name" : "RelWithDebInfo",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "t6_MLP_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ALL_BUILD::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ALL_BUILD-RelWithDebInfo-2957476c9a4d643711e3.json",
+					"name" : "ALL_BUILD",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "HTTPCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-HTTPCpp-RelWithDebInfo-eeff60f28593866461db.json",
+					"name" : "HTTPCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MPLCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MPLCpp-RelWithDebInfo-024ae202d2a62da07ec6.json",
+					"name" : "MPLCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "SHA256::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-SHA256-RelWithDebInfo-b30c9abcf06ca477bda6.json",
+					"name" : "SHA256",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ZERO_CHECK::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ZERO_CHECK-RelWithDebInfo-b6aae787b7bfc29825b6.json",
+					"name" : "ZERO_CHECK",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6Http::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6Http-RelWithDebInfo-ad6290b9fa1cb21724af.json",
+					"name" : "t6Http",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t6MPLtest::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t6MPLtest-RelWithDebInfo-cab1d78189750f997a1f.json",
+					"name" : "t6MPLtest",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release",
+		"source" : "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

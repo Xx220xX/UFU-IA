@@ -1,0 +1,31 @@
+@startuml
+'https://plantuml.com/class-diagram
+class Layer{
+    - float *x;
+    - float[] w;
+    - float[] z;
+    - float[] y;
+    - float[] dw;
+    - float[] dz;
+    - float[] dx;
+    - Function ativacao;
+    + int foward();
+    + float* backward(float *dy);
+}
+class MPL{
+    Layer[] layers;
+    float[] x;
+    float[] t;
+    float* y;
+    int foward();
+    float backward();
+}
+abstract class Function{
+    + float ativa(x);
+    + float derivada(x);
+}
+interface Sigmoid extends Function{}
+interface Tanh extends Function{}
+interface Relu extends Function{}
+
+@enduml

@@ -1,0 +1,703 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.22621 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.6.3+07e294721 for .NET Framework
+      Compilação de 19/10/2023 10:03:51 iniciada.
+      
+      Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\3.26.4\\CompilerIdC\\CompilerIdC.vcxproj" no nó 1 (destinos padrão).
+      PrepareForBuild:
+        Criando o diretório "Debug\\".
+        Criando o diretório "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Criando "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\3.26.4\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Excluindo o arquivo "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Tocando "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\3.26.4\\CompilerIdC\\CompilerIdC.vcxproj" (destinos padrão).
+      
+      Compilação com êxito.
+          0 Aviso(s)
+          0 Erro(s)
+      
+      Tempo Decorrido 00:00:00.93
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/3.26.4/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.6.3+07e294721 for .NET Framework
+      Compilação de 19/10/2023 10:03:53 iniciada.
+      
+      Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\3.26.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" no nó 1 (destinos padrão).
+      PrepareForBuild:
+        Criando o diretório "Debug\\".
+        Criando o diretório "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Criando "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+      ClCompile:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\3.26.4\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Excluindo o arquivo "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Tocando "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\3.26.4\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (destinos padrão).
+      
+      Compilação com êxito.
+          0 Aviso(s)
+          0 Erro(s)
+      
+      Tempo Decorrido 00:00:00.83
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/3.26.4/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-w8ctht"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-w8ctht"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-w8ctht
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_997ec.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 10:03:54 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-w8ctht\\cmTC_997ec.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_997ec.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-w8ctht\\Debug\\".
+          Criando o diretório "cmTC_997ec.dir\\Debug\\cmTC_997ec.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_997ec.dir\\Debug\\cmTC_997ec.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_997ec.dir\\Debug\\\\" /Fd"cmTC_997ec.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          CMakeCCompilerABI.c
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_997ec.dir\\Debug\\\\" /Fd"cmTC_997ec.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCCompilerABI.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-w8ctht\\Debug\\cmTC_997ec.exe" /INCREMENTAL /ILK:"cmTC_997ec.dir\\Debug\\cmTC_997ec.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-w8ctht/Debug/cmTC_997ec.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-w8ctht/Debug/cmTC_997ec.lib" /MACHINE:X64  /machine:x64 cmTC_997ec.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_997ec.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-w8ctht\\Debug\\cmTC_997ec.exe
+        FinalizeBuildStatus:
+          Excluindo o arquivo "cmTC_997ec.dir\\Debug\\cmTC_997ec.tlog\\unsuccessfulbuild".
+          Tocando "cmTC_997ec.dir\\Debug\\cmTC_997ec.tlog\\cmTC_997ec.lastbuildstate".
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-w8ctht\\cmTC_997ec.vcxproj" (destinos padrão).
+        
+        Compilação com êxito.
+            0 Aviso(s)
+            0 Erro(s)
+        
+        Tempo Decorrido 00:00:00.76
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-71zugn"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-71zugn"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-71zugn
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_143a1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 10:03:55 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-71zugn\\cmTC_143a1.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_143a1.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-71zugn\\Debug\\".
+          Criando o diretório "cmTC_143a1.dir\\Debug\\cmTC_143a1.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_143a1.dir\\Debug\\cmTC_143a1.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_143a1.dir\\Debug\\\\" /Fd"cmTC_143a1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          CMakeCXXCompilerABI.cpp
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_143a1.dir\\Debug\\\\" /Fd"cmTC_143a1.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Program Files\\JetBrains\\CLion 2023.2.2\\bin\\cmake\\win\\x64\\share\\cmake-3.26\\Modules\\CMakeCXXCompilerABI.cpp"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-71zugn\\Debug\\cmTC_143a1.exe" /INCREMENTAL /ILK:"cmTC_143a1.dir\\Debug\\cmTC_143a1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-71zugn/Debug/cmTC_143a1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-71zugn/Debug/cmTC_143a1.lib" /MACHINE:X64  /machine:x64 cmTC_143a1.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_143a1.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-71zugn\\Debug\\cmTC_143a1.exe
+        FinalizeBuildStatus:
+          Excluindo o arquivo "cmTC_143a1.dir\\Debug\\cmTC_143a1.tlog\\unsuccessfulbuild".
+          Tocando "cmTC_143a1.dir\\Debug\\cmTC_143a1.tlog\\cmTC_143a1.lastbuildstate".
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-71zugn\\cmTC_143a1.vcxproj" (destinos padrão).
+        
+        Compilação com êxito.
+            0 Aviso(s)
+            0 Erro(s)
+        
+        Tempo Decorrido 00:00:00.75
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting C OpenMP compiler info"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-h2hj13"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-h2hj13"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_C_openmp"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-h2hj13
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f2480.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 10:03:56 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-h2hj13\\cmTC_f2480.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_f2480.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-h2hj13\\Debug\\".
+          Criando o diretório "cmTC_f2480.dir\\Debug\\cmTC_f2480.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_f2480.dir\\Debug\\cmTC_f2480.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_f2480.dir\\Debug\\\\" /Fd"cmTC_f2480.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-h2hj13\\OpenMPTryFlag.c"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          OpenMPTryFlag.c
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_f2480.dir\\Debug\\\\" /Fd"cmTC_f2480.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-h2hj13\\OpenMPTryFlag.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-h2hj13\\Debug\\cmTC_f2480.exe" /INCREMENTAL /ILK:"cmTC_f2480.dir\\Debug\\cmTC_f2480.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-h2hj13/Debug/cmTC_f2480.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-h2hj13/Debug/cmTC_f2480.lib" /MACHINE:X64  /machine:x64 cmTC_f2480.dir\\Debug\\OpenMPTryFlag.obj
+          cmTC_f2480.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-h2hj13\\Debug\\cmTC_f2480.exe
+        FinalizeBuildStatus:
+          Excluindo o arquivo "cmTC_f2480.dir\\Debug\\cmTC_f2480.tlog\\unsuccessfulbuild".
+          Tocando "cmTC_f2480.dir\\Debug\\cmTC_f2480.tlog\\cmTC_f2480.lastbuildstate".
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-h2hj13\\cmTC_f2480.vcxproj" (destinos padrão).
+        
+        Compilação com êxito.
+            0 Aviso(s)
+            0 Erro(s)
+        
+        Tempo Decorrido 00:00:00.71
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:219 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:483 (_OPENMP_GET_FLAGS)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting CXX OpenMP compiler info"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-8yfesl"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-8yfesl"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "OpenMP_COMPILE_RESULT_CXX_openmp"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-8yfesl
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_7aa30.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 10:03:57 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_7aa30.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\Debug\\".
+          Criando o diretório "cmTC_7aa30.dir\\Debug\\cmTC_7aa30.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_7aa30.dir\\Debug\\cmTC_7aa30.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ComputeStdModulesCompileInputs:
+          Lendo o arquivo de manifesto da biblioteca 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\modules.json' que fornece dados para a biblioteca 'microsoft/STL'.
+          Adicionando a fonte do módulo 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx' da biblioteca 'microsoft/STL' a ser construída com este projeto.
+          Adicionando a fonte do módulo 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx' da biblioteca 'microsoft/STL' a ser construída com este projeto.
+        SetModuleDependencies:
+          Criando o diretório "cmTC_7aa30.dir\\Debug\\cmTC_7aa30_MD.tlog\\".
+          Verificando fontes para dependências de módulo...
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc" /scanDependencies "cmTC_7aa30.dir\\Debug\\\\" /Fo"cmTC_7aa30.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /scanDependencies "cmTC_7aa30.dir\\Debug\\\\" /Fo"cmTC_7aa30.dir\\Debug\\std.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc" /scanDependencies "cmTC_7aa30.dir\\Debug\\\\" /Fo"cmTC_7aa30.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          std.compat.ixx
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /scanDependencies "cmTC_7aa30.dir\\Debug\\\\" /Fo"cmTC_7aa30.dir\\Debug\\std.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          std.ixx
+        ClCompile:
+          Compilando...
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /Fo"cmTC_7aa30.dir\\Debug\\std.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /Fo"cmTC_7aa30.dir\\Debug\\std.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          std.ixx
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc" /Fo"cmTC_7aa30.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc" /Fo"cmTC_7aa30.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          std.compat.ixx
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /reference "std.compat=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /Fo"cmTC_7aa30.dir\\Debug\\\\" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\OpenMPTryFlag.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.ixx.ifc" /reference "std.compat=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.dir\\Debug\\std.compat.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /Fo"cmTC_7aa30.dir\\Debug\\\\" /Fd"cmTC_7aa30.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\OpenMPTryFlag.cpp"
+          OpenMPTryFlag.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\Debug\\cmTC_7aa30.exe" /INCREMENTAL /ILK:"cmTC_7aa30.dir\\Debug\\cmTC_7aa30.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-8yfesl/Debug/cmTC_7aa30.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-8yfesl/Debug/cmTC_7aa30.lib" /MACHINE:X64  /machine:x64 cmTC_7aa30.dir\\Debug\\OpenMPTryFlag.obj
+          cmTC_7aa30.dir\\Debug\\std.ixx.obj
+          cmTC_7aa30.dir\\Debug\\std.compat.ixx.obj
+          cmTC_7aa30.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\Debug\\cmTC_7aa30.exe
+        FinalizeBuildStatus:
+          Excluindo o arquivo "cmTC_7aa30.dir\\Debug\\cmTC_7aa30.tlog\\unsuccessfulbuild".
+          Tocando "cmTC_7aa30.dir\\Debug\\cmTC_7aa30.tlog\\cmTC_7aa30.lastbuildstate".
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-8yfesl\\cmTC_7aa30.vcxproj" (destinos padrão).
+        
+        Compilação com êxito.
+            0 Aviso(s)
+            0 Erro(s)
+        
+        Tempo Decorrido 00:00:06.51
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:419 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:557 (_OPENMP_GET_SPEC_DATE)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting C OpenMP version"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-259l2x"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-259l2x"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "OpenMP_SPECTEST_C_"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-259l2x
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_bf6b6.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 10:04:04 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-259l2x\\cmTC_bf6b6.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_bf6b6.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-259l2x\\Debug\\".
+          Criando o diretório "cmTC_bf6b6.dir\\Debug\\cmTC_bf6b6.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_bf6b6.dir\\Debug\\cmTC_bf6b6.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_bf6b6.dir\\Debug\\\\" /Fd"cmTC_bf6b6.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-259l2x\\OpenMPCheckVersion.c"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          OpenMPCheckVersion.c
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_bf6b6.dir\\Debug\\\\" /Fd"cmTC_bf6b6.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-259l2x\\OpenMPCheckVersion.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-259l2x\\Debug\\cmTC_bf6b6.exe" /INCREMENTAL /ILK:"cmTC_bf6b6.dir\\Debug\\cmTC_bf6b6.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-259l2x/Debug/cmTC_bf6b6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-259l2x/Debug/cmTC_bf6b6.lib" /MACHINE:X64  /machine:x64 cmTC_bf6b6.dir\\Debug\\OpenMPCheckVersion.obj
+          cmTC_bf6b6.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-259l2x\\Debug\\cmTC_bf6b6.exe
+        FinalizeBuildStatus:
+          Excluindo o arquivo "cmTC_bf6b6.dir\\Debug\\cmTC_bf6b6.tlog\\unsuccessfulbuild".
+          Tocando "cmTC_bf6b6.dir\\Debug\\cmTC_bf6b6.tlog\\cmTC_bf6b6.lastbuildstate".
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-259l2x\\cmTC_bf6b6.vcxproj" (destinos padrão).
+        
+        Compilação com êxito.
+            0 Aviso(s)
+            0 Erro(s)
+        
+        Tempo Decorrido 00:00:00.66
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:419 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindOpenMP.cmake:557 (_OPENMP_GET_SPEC_DATE)"
+      - "CMakeLists.txt:5 (find_package)"
+    description: "Detecting CXX OpenMP version"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-v54h4w"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-v54h4w"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /EHsc"
+      CMAKE_CXX_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "OpenMP_SPECTEST_CXX_"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-v54h4w
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_31e28.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 10:04:05 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_31e28.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\Debug\\".
+          Criando o diretório "cmTC_31e28.dir\\Debug\\cmTC_31e28.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_31e28.dir\\Debug\\cmTC_31e28.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ComputeStdModulesCompileInputs:
+          Lendo o arquivo de manifesto da biblioteca 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\modules.json' que fornece dados para a biblioteca 'microsoft/STL'.
+          Adicionando a fonte do módulo 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx' da biblioteca 'microsoft/STL' a ser construída com este projeto.
+          Adicionando a fonte do módulo 'C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx' da biblioteca 'microsoft/STL' a ser construída com este projeto.
+        SetModuleDependencies:
+          Criando o diretório "cmTC_31e28.dir\\Debug\\cmTC_31e28_MD.tlog\\".
+          Verificando fontes para dependências de módulo...
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc" /scanDependencies "cmTC_31e28.dir\\Debug\\\\" /Fo"cmTC_31e28.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /scanDependencies "cmTC_31e28.dir\\Debug\\\\" /Fo"cmTC_31e28.dir\\Debug\\std.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /scanDependencies "cmTC_31e28.dir\\Debug\\\\" /Fo"cmTC_31e28.dir\\Debug\\std.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          std.ixx
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc" /scanDependencies "cmTC_31e28.dir\\Debug\\\\" /Fo"cmTC_31e28.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          std.compat.ixx
+        ClCompile:
+          Compilando...
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /Fo"cmTC_31e28.dir\\Debug\\std.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /Fo"cmTC_31e28.dir\\Debug\\std.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.ixx"
+          std.ixx
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc" /Fo"cmTC_31e28.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /FS /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /ifcOutput "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc" /Fo"cmTC_31e28.dir\\Debug\\std.compat.ixx.obj" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /sourceDependencies "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc.d.json" /external:W1 /Gd /interface /errorReport:queue  /TP "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\modules\\std.compat.ixx"
+          std.compat.ixx
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /reference "std.compat=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /Fo"cmTC_31e28.dir\\Debug\\\\" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\OpenMPCheckVersion.cpp"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          /std:c++mais recente é fornecido como uma versão prévia dos recursos de linguagem do rascunho de
+          trabalho mais recente do C++ e estamos ansiosos por saber sobre bugs e sugestões para aprimoramentos.
+          No entanto, observe que esses recursos são fornecidos no estado em que se encontram sem suporte e estão sujeitos
+          a alterações ou remoção conforme a evolução do rascunho de trabalho. Consulte
+          https://go.microsoft.com/fwlink/?linkid=2045807 para obter detalhes.
+          cl /c /reference "std=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.ixx.ifc" /reference "std.compat=C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.dir\\Debug\\std.compat.ixx.ifc" /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /std:c++latest /Fo"cmTC_31e28.dir\\Debug\\\\" /Fd"cmTC_31e28.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TP /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\OpenMPCheckVersion.cpp"
+          OpenMPCheckVersion.cpp
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\Debug\\cmTC_31e28.exe" /INCREMENTAL /ILK:"cmTC_31e28.dir\\Debug\\cmTC_31e28.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-v54h4w/Debug/cmTC_31e28.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-v54h4w/Debug/cmTC_31e28.lib" /MACHINE:X64  /machine:x64 cmTC_31e28.dir\\Debug\\OpenMPCheckVersion.obj
+          cmTC_31e28.dir\\Debug\\std.ixx.obj
+          cmTC_31e28.dir\\Debug\\std.compat.ixx.obj
+          cmTC_31e28.vcxproj -> C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\Debug\\cmTC_31e28.exe
+        FinalizeBuildStatus:
+          Excluindo o arquivo "cmTC_31e28.dir\\Debug\\cmTC_31e28.tlog\\unsuccessfulbuild".
+          Tocando "cmTC_31e28.dir\\Debug\\cmTC_31e28.tlog\\cmTC_31e28.lastbuildstate".
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-v54h4w\\cmTC_31e28.vcxproj" (destinos padrão).
+        
+        Compilação com êxito.
+            0 Aviso(s)
+            0 Erro(s)
+        
+        Tempo Decorrido 00:00:06.23
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-dr6eaj"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-dr6eaj"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS -openmp"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64 "
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-dr6eaj
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_79ac0.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 11:28:53 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\cmTC_79ac0.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_79ac0.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\Debug\\".
+          Criando o diretório "cmTC_79ac0.dir\\Debug\\cmTC_79ac0.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_79ac0.dir\\Debug\\cmTC_79ac0.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_79ac0.dir\\Debug\\\\" /Fd"cmTC_79ac0.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\src.c"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          src.c
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_79ac0.dir\\Debug\\\\" /Fd"cmTC_79ac0.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\src.c"
+        C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\src.c(1,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'pthread.h': No such file or directory [C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\cmTC_79ac0.vcxproj]
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\cmTC_79ac0.vcxproj" (destinos padrão) -- FALHA.
+        
+        FALHA da compilação.
+        
+        "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\cmTC_79ac0.vcxproj" (destino padrão) (1) ->
+        (ClCompile destino) -> 
+          C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\src.c(1,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'pthread.h': No such file or directory [C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-dr6eaj\\cmTC_79ac0.vcxproj]
+        
+            0 Aviso(s)
+            1 Erro(s)
+        
+        Tempo Decorrido 00:00:00.74
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:175 (_threads_check_lib)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthreads"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-qma56z"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-qma56z"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS -openmp"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64 "
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREADS_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-qma56z
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4036b.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 11:28:55 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\cmTC_4036b.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_4036b.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\Debug\\".
+          Criando o diretório "cmTC_4036b.dir\\Debug\\cmTC_4036b.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_4036b.dir\\Debug\\cmTC_4036b.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_4036b.dir\\Debug\\\\" /Fd"cmTC_4036b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_4036b.dir\\Debug\\\\" /Fd"cmTC_4036b.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\Debug\\cmTC_4036b.exe" /INCREMENTAL /ILK:"cmTC_4036b.dir\\Debug\\cmTC_4036b.ilk" /NOLOGO pthreads.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-qma56z/Debug/cmTC_4036b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-qma56z/Debug/cmTC_4036b.lib" /MACHINE:X64  /machine:x64 cmTC_4036b.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: não é possível abrir o arquivo 'pthreads.lib' [C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\cmTC_4036b.vcxproj]
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\cmTC_4036b.vcxproj" (destinos padrão) -- FALHA.
+        
+        FALHA da compilação.
+        
+        "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\cmTC_4036b.vcxproj" (destino padrão) (1) ->
+        (Link destino) -> 
+          LINK : fatal error LNK1104: não é possível abrir o arquivo 'pthreads.lib' [C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-qma56z\\cmTC_4036b.vcxproj]
+        
+            0 Aviso(s)
+            1 Erro(s)
+        
+        Tempo Decorrido 00:00:00.70
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CheckLibraryExists.cmake:71 (try_compile)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:112 (CHECK_LIBRARY_EXISTS)"
+      - "C:/Program Files/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/FindThreads.cmake:176 (_threads_check_lib)"
+      - "CMakeLists.txt:12 (find_package)"
+    checks:
+      - "Looking for pthread_create in pthread"
+    directories:
+      source: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-b3ww2y"
+      binary: "C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-b3ww2y"
+    cmakeVariables:
+      CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS -openmp"
+      CMAKE_C_FLAGS_DEBUG: "/Ob0 /Od /RTC1"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64 "
+    buildResult:
+      variable: "CMAKE_HAVE_PTHREAD_CREATE"
+      cached: true
+      stdout: |
+        Change Dir: C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-b3ww2y
+        
+        Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_64c1c.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n && MSBuild version 17.6.3+07e294721 for .NET Framework
+        Compilação de 19/10/2023 11:28:56 iniciada.
+        
+        Projeto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\cmTC_64c1c.vcxproj" no nó 1 (destinos padrão).
+        PrepareForBuild:
+          Criando o diretório "cmTC_64c1c.dir\\Debug\\".
+          Criando o diretório "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\Debug\\".
+          Criando o diretório "cmTC_64c1c.dir\\Debug\\cmTC_64c1c.tlog\\".
+        InitializeBuildStatus:
+          Criando "cmTC_64c1c.dir\\Debug\\cmTC_64c1c.tlog\\unsuccessfulbuild" porque "AlwaysCreate" foi especificado.
+        ClCompile:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\CL.exe /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_64c1c.dir\\Debug\\\\" /Fd"cmTC_64c1c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\CheckFunctionExists.c"
+          Microsoft (R) C/C++ Optimizing Compiler Versão 19.36.32534 para x64
+          CheckFunctionExists.c
+          Copyright (C) Microsoft Corporation. Todos os direitos reservados.
+          cl /c /Zi /W1 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /openmp /Fo"cmTC_64c1c.dir\\Debug\\\\" /Fd"cmTC_64c1c.dir\\Debug\\vc143.pdb" /external:W1 /Gd /TC /errorReport:queue "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\CheckFunctionExists.c"
+        Link:
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.36.32532\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\Debug\\cmTC_64c1c.exe" /INCREMENTAL /ILK:"cmTC_64c1c.dir\\Debug\\cmTC_64c1c.ilk" /NOLOGO pthread.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-b3ww2y/Debug/cmTC_64c1c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/CMakeScratch/TryCompile-b3ww2y/Debug/cmTC_64c1c.lib" /MACHINE:X64  /machine:x64 cmTC_64c1c.dir\\Debug\\CheckFunctionExists.obj
+        LINK : fatal error LNK1104: não é possível abrir o arquivo 'pthread.lib' [C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\cmTC_64c1c.vcxproj]
+        Projeto de compilação pronto "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\cmTC_64c1c.vcxproj" (destinos padrão) -- FALHA.
+        
+        FALHA da compilação.
+        
+        "C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\cmTC_64c1c.vcxproj" (destino padrão) (1) ->
+        (Link destino) -> 
+          LINK : fatal error LNK1104: não é possível abrir o arquivo 'pthread.lib' [C:\\Users\\hslhe\\CLionProjects\\UFU-MESTRADO\\Trabalhos\\t6-MLP-cpp\\cmake-build-release\\CMakeFiles\\CMakeScratch\\TryCompile-b3ww2y\\cmTC_64c1c.vcxproj]
+        
+            0 Aviso(s)
+            1 Erro(s)
+        
+        Tempo Decorrido 00:00:00.59
+        
+      exitCode: 1
+...

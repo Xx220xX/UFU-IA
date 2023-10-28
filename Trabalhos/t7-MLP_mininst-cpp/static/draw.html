@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MLP Números</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous">
+    <style>
+        canvas {
+            /*width: 400px; !* Largura do canvas *!*/
+            /*height: 400px; !* Altura do canvas *!*/
+            border: 1px solid #000;
+            /*display: inline-block; !* Torna a div um bloco inline *!*/
+        }
+
+        .lado {
+            width: auto;
+            height: auto;
+            display: grid;
+            /*grid-template-columns: repeat(2, 1fr);*/
+            gap: 2%;
+            margin: 0;
+            padding: 0;
+            justify-content: center;
+            /*border: 1px solid #000;*/
+
+        }
+
+    </style>
+</head>
+<body>
+<div class="container"><h1>MPL reconhecendo imagens</h1></div>
+
+<div class="container pl-2">
+
+    <div class="row mb-2">
+        <button class="lado btn btn-dark fas fa-eraser fa-2x" style="height: 40px;" onclick="limparCanvas()"></button>
+        <main class="lado"></main>
+        <div class="lado" style="width: 40%; font-size: 80pt;">
+            <p id="show" ></p>
+        </div>
+    </div>
+    <select class="form-select" id="redes" onchange="lerRede()" aria-label="Default select example">
+        <option selected>Selecione a rede MPL</option>
+    </select>
+    <div>
+        <p id="show-saida"></p>
+    </div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>-->
+<script>
+    let pix = [];
+
+    const cvSize = 400// Tamanho do canvas cv
+    const w = 400;
+    const h = 400;
+    const cv_w = 28;
+    const cv_h = 28;
+    let black = null;
+    let white = null;
+    let cv;
+
+    function setPixel(canvas, i, j, cor) {
+        let k = i * canvas.width + j;
+        k = k * 4;
+        canvas.pixels[k] = red(cor);
+        canvas.pixels[k + 1] = green(cor);
+        canvas.pixels[k + 2] = blue(cor);
+        canvas.pixels[k + 3] = alpha(cor);
+    }
+
+    function getPixel(canvas, i, j) {
+        let k = i * canvas.width + j;
+        k = k * 4;
+        let cor = canvas.pixels[k] + canvas.pixels[k + 1] + canvas.pixels[k + 2];
+        return cor / (255 * 3);
+    }
+
+
+    function xadres() {
+
+
+        cv.loadPixels();
+
+        for (let i = 0; i < cv_w; i += 1) {
+            for (let j = i % 2; j < cv_h; j += 2) {
+                setPixel(cv, i, j, black);
+            }
+        }
+        cv.updatePixels();
+    }
+
+    function setup() {
+        createCanvas(w, h);
+        cv = createGraphics(cv_w, cv_h);
+        cv.pixelDensity(1);
+        cv.background(255)
+        black = color(0, 0, 0);
+        white = color(255, 255, 255);
+        //cv.noSmooth()
+        noSmooth()
+        //xadres();
+    }
+
+    function draw() {
+        background(255);
+
+        // Verifica se o mouse está dentro do canvas cv
+        if (
+            mouseX >= 0 && mouseX < cvSize &&
+            mouseY >= 0 && mouseY < cvSize
+        ) {
+            if (mouseIsPressed) {
+                if (mouseButton === LEFT) {
+                    cv.stroke(black);
+                } else {
+                    cv.stroke(white);
+                }
+                const x1 = int(map(pmouseX, 0, cvSize, 0, cv_w));
+                const y1 = int(map(pmouseY, 0, cvSize, 0, cv_h));
+                const x2 = int(map(mouseX, 0, cvSize, 0, cv_w));
+                const y2 = int(map(mouseY, 0, cvSize, 0, cv_h));
+                cv.strokeWeight(2);
+                cv.line(x1, y1, x2, y2);
+            }
+        }
+
+        // Desenha o canvas cv
+        image(cv, 0, 0, cvSize, cvSize);
+    }
+
+    function mouseReleased() {
+        cv.loadPixels();
+        let  lpixels = Array(cv_w*cv_h);
+        let im = '';
+        for (let i = 0; i < cv_w; i += 1) {
+            for (let j = 0; j < cv_h; j += 1) {
+                let c = getPixel(cv, i, j);
+
+                im += `${c} `;
+                if (c < 0.9) {
+                    setPixel(cv, i, j, black);
+                    lpixels[i*cv_w+j] = 1;
+                }else {
+                    setPixel(cv, i, j, white);
+                    lpixels[i*cv_w+j] = 0;
+                }
+            }
+            im += `\n`;
+        }
+        pix = lpixels;
+        cv.updatePixels();
+        reconhecer();
+    }
+
+    function limparCanvas() {
+        cv.background(white)
+    }
+
+    function cvgetPixels(){
+        cv.loadPixels();
+        let px = Array(cv_h);
+        for (let i = 0; i < cv_h; i += 1) {
+            px[i] = Array(cv_w)
+            for (let j = 0; j < cv_w; j += 1) {
+                let c = getPixel(cv, i, j);
+                px[i][j] = c;
+            }
+        }
+    }
+
+</script>
+<script src="./redes.js"></script>
+
+<script>
+    const dropdown = document.getElementById("redes");
+    const showDiv =  document.getElementById("show");
+    const  saidaDiv =  document.getElementById("show-saida");
+</script>
+<script src="redesDisponiveis.js"></script>
+
+<script>
+    window.addEventListener("load", function() {
+        // Coloque aqui o código que você deseja executar após o carregamento completo da página.
+        let options = '';
+        // options += '<option selected>Selecione a rede MPL</option>';
+        for (let i in redesDisponiveis){
+            options+= `<option value="${i}">${redesDisponiveis[i]}</option>`;
+        }
+        dropdown.innerHTML  = options;
+        lerRede();
+
+    });
+    function mlpSIGMOID(entrada,pesos){
+        const f = (x) => 1 / (1 + Math.exp(-x));
+        let saida = entrada;
+        for (let w of pesos){
+            entrada = saida;
+            saida = Array(w[0].length);
+            entrada.push(1);
+            for(let j in w[0]){
+                let sum = 0;
+                for (let i in w){
+                    sum+= entrada[i]*w[i][j];
+                }
+                saida[j] = f(sum);
+            }
+        }
+        let maxi = 0;
+        for (let i in saida){
+            if(saida[i]>saida[maxi])
+                maxi=i;
+        }
+        return [saida,maxi];
+    }
+
+</script>
+
+<script>
+    let rede = [];
+
+    function lerRede(){
+        let id = dropdown.value;
+        rede = pesosTreinados[id]
+        reconhecer();
+    }
+
+    function reconhecer(){
+       let [s,i] =  mlpSIGMOID(pix,rede);
+
+        showDiv.innerText = `${i}`;
+        saidaDiv.innerText = s;
+
+    }
+</script>
+</html>

@@ -1,0 +1,7 @@
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/SHA256.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/MPLCpp.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/HTTPCpp.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/t6MPLtest.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/t6Http.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/ALL_BUILD.dir
+C:/Users/hslhe/CLionProjects/UFU-MESTRADO/Trabalhos/t6-MLP-cpp/cmake-build-release/CMakeFiles/ZERO_CHECK.dir

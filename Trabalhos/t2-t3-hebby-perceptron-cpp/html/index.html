@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráficos com Bootstrap e JavaScript</title>
+
+    <!-- Adicione as referências ao Bootstrap e ao Chart.js -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Rede Neural Adaline</h1>
+    <!-- Botão de treinamento -->
+    <button id="treinarBtn" class="btn btn-primary">Treinar</button>
+
+    <!-- Primeiro contêiner com gráfico de linha -->
+    <div class="container mt-4">
+        <canvas id="graficoLinha" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Segundo contêiner com gráfico de dispersão -->
+    <div class="container mt-4">
+        <canvas id="graficoDispersao" width="400" height="200"></canvas>
+    </div>
+</div>
+
+<script>
+    const buttonTreinar = document.getElementById('treinarBtn');
+
+    const epocas = [];
+    const erros = [];
+    const dadosDispersao = [{x: 1, y: 10}];
+
+    // Configuração do gráfico de linha
+    const ctxLinha = document.getElementById('graficoLinha').getContext('2d');
+    const graficoLinha = new Chart(ctxLinha, {
+        type: 'line',
+        data: {
+            labels: epocas,
+            datasets: [{
+                label: 'Erro',
+                data: erros,
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2
+            }]
+        }
+    });
+
+    // Configuração do gráfico de dispersão
+    const ctxDispersao = document.getElementById('graficoDispersao').getContext('2d');
+    const graficoDispersao = new Chart(ctxDispersao, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Dados de Dispersão',
+                data: dadosDispersao,
+                backgroundColor: 'rgba(255, 99, 132, 0.7)'
+            }]
+        },
+        options: {
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom'
+                },
+                y: {
+                    min: 0,
+                    max: 12
+                }
+            }
+        }
+    });
+
+
+    const randInt = (max) => Math.floor(Math.random() * max);
+
+    function updateStatusTreino() {
+        // fazer um get e obter a lista de pontos atualizada passando o len
+        const len = randInt(100);
+        let req_erro = [];
+        let finalizouTreino = false;
+        for (let i = 0; i < len; i++) {
+            req_erro.push(Math.random());
+        }
+        for (let e of req_erro) {
+            epocas.push(epocas.length);
+            erros.push(e);
+        }
+        if (epocas.length > 200) {
+            finalizouTreino = true;
+        }
+
+
+        //dadosDispersao.push({x: epocas.length, y: Math.random() * 10});
+        graficoLinha.update();
+        //graficoDispersao.update();
+        if (!finalizouTreino)
+            setTimeout(updateStatusTreino, 1000);
+        else {
+            buttonTreinar.disabled = false;
+        }
+    }
+
+
+    // Evento de clique no botão "Treinar"
+    buttonTreinar.addEventListener('click', () => {
+        buttonTreinar.disabled = true;
+        epocas.splice(0,epocas.length);
+        erros.splice(0,erros.length);
+        updateStatusTreino();
+        // Aqui você pode adicionar lógica para treinar seus dados e atualizar os gráficos
+        // Por enquanto, vamos apenas atualizar os gráficos com dados aleatórios
+
+    });
+</script>
+
+<!-- Adicione as referências ao Bootstrap e ao Chart.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
