@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.26"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "t7_MLP_mininst_cpp",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "MPL2Cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MPL2Cpp-Debug-5292cf9487bab8f1dcec.json",
+					"name" : "MPL2Cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "MPLCpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-MPLCpp-Debug-80025330b638942eb7a4.json",
+					"name" : "MPLCpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t7_MLP2_mininst_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t7_MLP2_mininst_cpp-Debug-7d2f75c6bb5425c5591e.json",
+					"name" : "t7_MLP2_mininst_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "t7_MLP_mininst_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-t7_MLP_mininst_cpp-Debug-c2ac4dfa3d0a16378271.json",
+					"name" : "t7_MLP_mininst_cpp",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/henrique/CLionProjects/UFU-IA/Trabalhos/t7-MLP_mininst-cpp/cmake-build-debug",
+		"source" : "/home/henrique/CLionProjects/UFU-IA/Trabalhos/t7-MLP_mininst-cpp"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}

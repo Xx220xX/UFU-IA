@@ -1,0 +1,1 @@
+/usr/bin/c++  -fopenmp -g CMakeFiles/trabalhos.dir/main.cpp.o CMakeFiles/trabalhos.dir/src/MLP.cpp.o CMakeFiles/trabalhos.dir/src/Func.cpp.o -o trabalhos 

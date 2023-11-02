@@ -1,0 +1,3 @@
+/home/henrique/CLionProjects/UFU-IA/Trabalhos/T7-enhanced/cmake-build-debug/CMakeFiles/trabalhos.dir
+/home/henrique/CLionProjects/UFU-IA/Trabalhos/T7-enhanced/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/henrique/CLionProjects/UFU-IA/Trabalhos/T7-enhanced/cmake-build-debug/CMakeFiles/rebuild_cache.dir
