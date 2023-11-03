@@ -68,11 +68,23 @@ namespace MLP {
                     os << ",\n\t";
                 }
                 first = false;
-                os << "{\"func\":\"" << l.f.name;
-                string b64 = EncodeVectorToBase64(l.W);
+                os << "{\"func\":\"" << l.f.name<<"\"";
                 os<<",\"in\":"<<l.inb<<",\"out\":"<<l.ot;
-                os<<"\",\"w\":\""<<b64<<"\"";
-                os << "}";
+                os<<",\"w\":[";
+                for (int i = 0; i < l.inb; ++i) {
+                    if(i>0){
+                        os<<",";
+                    }
+                    os<<"[";
+                    for (int j = 0; j < l.ot; ++j) {
+                        if(j>0){
+                            os<<",";
+                        }
+                        os<<l.W[i*l.ot+j];
+                    }
+                    os<<"]";
+                }
+                os << "]}";
             }
             os << "\n]";
             return os;

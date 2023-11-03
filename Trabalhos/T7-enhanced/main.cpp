@@ -15,6 +15,7 @@ using namespace std;
 bool fileExists(const std::string &filename) {
     return (access(filename.c_str(), F_OK) != -1);
 }
+
 int pastaExiste(const char *caminho) {
     struct stat info;
     if (stat(caminho, &info) != 0) {
@@ -39,6 +40,7 @@ int main(int nargs, char **args) {
     vector<vector<Number>> confusao(10);
     Number lastAcerto = 0;
     string filesave;
+    string nameRede;
     ofstream fmlp;
     ofstream fstt;
     // alpha arg [1], n1, n2, n3, n4 , n5 ...
@@ -54,7 +56,6 @@ int main(int nargs, char **args) {
         }
 
     }
-
 
 
     int e = loadData(path, "dataset/train-images.idx3-ubyte", "dataset/train-labels.idx1-ubyte", treino, false, -1);
@@ -77,17 +78,17 @@ int main(int nargs, char **args) {
         mlp.addLayer(20);
     }
     mlp.addLayer(treino[0].y.size());
-    if(!pastaExiste("./treinadas/")){
-        mkdir("./treinadas/",0777);
+    if (!pastaExiste("./treinadas/")) {
+        mkdir("./treinadas/", 0777);
     }
-    cout<<mlp<<endl;
-
-    return 0 ;
 
     filesave = "./treinadas/mlp_" + to_string(mlp.default_alpha) + "(";
     filesave += to_string(mlp.in);
+    nameRede += to_string(mlp.in);
+
     for (int l = 0; l < mlp.layers.size(); ++l) {
         filesave += "_" + to_string(mlp.layers[l].ot) + mlp.layers[l].f.name;
+        nameRede += " " + to_string(mlp.layers[l].ot);
     }
     filesave += ")";
     {
@@ -96,6 +97,8 @@ int main(int nargs, char **args) {
             i++;
         }
         filesave += to_string(i);
+        nameRede = "[" + to_string(i) + "]" + nameRede;
+
     }
     fstt.open(filesave + ".txt");
 
@@ -131,8 +134,10 @@ int main(int nargs, char **args) {
         for (int j = 0; j < 10; ++j) {
             fstt << j << ": " << confusao[j] << "\n";
         }
-        fmlp.open(filesave + ".json");
-        fmlp << mlp;
+        fmlp.open(filesave + ".js");
+        fmlp << "(()=>{ const rede = " << mlp << ";\n"
+                                                "Add(rede,"<<acertos<<","<<epoca+1<<",\""<<nameRede<<"\");"
+                                                              "})();";
         fmlp.close();
 
         fstt << endl;
